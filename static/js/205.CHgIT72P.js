@@ -1,0 +1,1 @@
+const t="Reset Content",e="Код ответа HTTP 205 Reset Content сообщает клиенту об изменении вида документа, например, для очистки содержимого формы.",o=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/205"],s=[],n=205,c={title:t,description:e,links:o,images:s,code:205};export{n as code,c as default,e as description,s as images,o as links,t as title};

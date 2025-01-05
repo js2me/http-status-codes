@@ -1,0 +1,1 @@
+const o="Precondition Required",e="Код ответа HTTP 428 Precondition Required указывает, что сервер требует выполнения условий перед обработкой запроса.",t=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/428"],s=[],c=428,i={title:o,description:e,links:t,images:s,code:428};export{c as code,i as default,e as description,s as images,t as links,o as title};

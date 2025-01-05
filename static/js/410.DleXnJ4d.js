@@ -1,0 +1,1 @@
+const o="Gone",t="Код ответа HTTP 410 Gone указывает, что целевой ресурс больше недоступен на сервере и это состояние, вероятно, постоянное.",e=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/410"],s=[],c=410,n={title:o,description:t,links:e,images:s,code:410};export{c as code,n as default,t as description,s as images,e as links,o as title};

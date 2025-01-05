@@ -1,0 +1,1 @@
+const s="IM Used",t="Код ответа HTTP 226 IM Used указывает, что сервер выполнил запрос с использованием метода 'GET' для получения изменённого ресурса.",o=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/226"],e=[],c=226,d={title:s,description:t,links:o,images:e,code:226};export{c as code,d as default,t as description,e as images,o as links,s as title};

@@ -1,0 +1,1 @@
+const o="HTTP Version Not Supported",t="Код ответа HTTP 505 HTTP Version Not Supported указывает, что сервер не поддерживает версию протокола HTTP, используемую в запросе.",e=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/505"],s=[],c=505,n={title:o,description:t,links:e,images:s,code:505};export{c as code,n as default,t as description,s as images,e as links,o as title};

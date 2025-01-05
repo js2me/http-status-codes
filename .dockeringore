@@ -1,0 +1,8 @@
+.kube/
+.git/
+*.md
+.idea/
+node_modules/
+*.log
+public/
+dist/

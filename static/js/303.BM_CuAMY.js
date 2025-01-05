@@ -1,0 +1,1 @@
+const e="See Other",t="Код ответа HTTP 303 See Other указывает, что клиент должен выполнить запрос по другому URI для получения представления ресурса.",o=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/303"],s=[],c=303,n={title:e,description:t,links:o,images:s,code:303};export{c as code,n as default,t as description,s as images,o as links,e as title};

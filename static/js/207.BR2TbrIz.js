@@ -1,0 +1,1 @@
+const t="Multi-Status",s="Код ответа HTTP 207 Multi-Status используется для передачи информации о нескольких ресурсах в одном ответе.",o=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/207"],e=[],c=207,i={title:t,description:s,links:o,images:e,code:207};export{c as code,i as default,s as description,e as images,o as links,t as title};

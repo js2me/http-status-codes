@@ -1,0 +1,1 @@
+const e="Internal Server Error",r="Код ответа HTTP 500 Internal Server Error указывает на то, что сервер столкнулся с неожиданной ошибкой при обработке запроса.",t=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/500"],o=[],s=500,n={title:e,description:r,links:t,images:o,code:500};export{s as code,n as default,r as description,o as images,t as links,e as title};

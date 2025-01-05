@@ -1,0 +1,1 @@
+const o="Unavailable For Legal Reasons",e="Код ответа HTTP 451 Unavailable For Legal Reasons указывает на то, что доступ к ресурсу ограничен по юридическим причинам.",s=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/451"],a=[],t=451,l={title:o,description:e,links:s,images:a,code:451};export{t as code,l as default,e as description,a as images,s as links,o as title};

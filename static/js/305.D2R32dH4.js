@@ -1,0 +1,1 @@
+const o="Use Proxy",s="**Код ответа HTTP 305 Use Proxy** указывает, что запрашиваемый ресурс должен быть доступен через прокси-сервер.",t=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/305"],e=[],c=305,n={title:o,description:s,links:t,images:e,code:305};export{c as code,n as default,s as description,e as images,t as links,o as title};

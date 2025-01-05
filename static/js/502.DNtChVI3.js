@@ -1,0 +1,1 @@
+const t="Bad Gateway",o="Код ответа HTTP 502 Bad Gateway указывает, что сервер, действующий как прокси или шлюз, получил недопустимый ответ от вышестоящего сервера.",e=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/502"],s=[],a=502,c={title:t,description:o,links:e,images:s,code:502};export{a as code,c as default,o as description,s as images,e as links,t as title};

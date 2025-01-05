@@ -1,0 +1,1 @@
+const t="Created",e="Код ответа HTTP 201 Created указывает, что запрос выполнен успешно и привёл к созданию ресурса.",o=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/201"],s=[],c=201,d={title:t,description:e,links:o,images:s,code:201};export{c as code,d as default,e as description,s as images,o as links,t as title};

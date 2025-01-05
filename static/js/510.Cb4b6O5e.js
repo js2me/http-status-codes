@@ -1,0 +1,1 @@
+const t="Not Extended",o="Код ответа HTTP 510 Not Extended указывает на то, что сервер требует дополнительные расширения для выполнения запроса.",e=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/510"],s=[],c=510,d={title:t,description:o,links:e,images:s,code:510};export{c as code,d as default,o as description,s as images,e as links,t as title};

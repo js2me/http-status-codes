@@ -1,0 +1,18 @@
+# Поддержка браузеров
+# https://github.com/browserslist/browserslist
+# лексика - https://github.com/browserslist/browserslist#query-composition
+last 3 years
+#dead
+
+# версии которые получили поддержку var() CSS переменных
+#chrome >= 49
+#edge >= 15
+#firefox >= 31
+#opera >= 36
+#safari >= 9.1
+#chromeandroid >= 49
+#firefoxandroid >= 31
+#operamobile >= 36
+#ios_saf >= 9.3
+#samsung >= 5.0
+
