@@ -1,0 +1,1 @@
+{"title":"Request Timeout","description":"Код ответа HTTP 408 Request Timeout указывает, что сервер не получил запрос от клиента в течение установленного времени и закрыл соединение.","links":["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/408"],"images":[],"code":408}

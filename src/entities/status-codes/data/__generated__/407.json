@@ -1,0 +1,1 @@
+{"title":"Proxy Authentication Required","description":"Код ответа HTTP 407 Proxy Authentication Required указывает, что клиент должен аутентифицироваться на прокси-сервере перед выполнением запроса.","links":["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/407"],"images":[],"code":407}

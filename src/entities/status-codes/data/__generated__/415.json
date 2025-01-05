@@ -1,0 +1,1 @@
+{"title":"Unsupported Media Type","description":"Код ответа HTTP 415 Unsupported Media Type указывает, что сервер отказывается принять запрос из-за неподдерживаемого формата содержимого.","links":["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/415"],"images":[],"code":415}

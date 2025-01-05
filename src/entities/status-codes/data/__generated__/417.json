@@ -1,0 +1,1 @@
+{"title":"Expectation Failed","description":"Код ответа HTTP 417 Expectation Failed указывает на то, что ожидание, указанное в заголовке Expect, не может быть выполнено.","links":["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/417"],"images":[],"code":417}

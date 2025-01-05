@@ -1,0 +1,1 @@
+{"title":"Partial Content","description":"Код ответа HTTP 206 Partial Content указывает, что запрос успешен и тело содержит запрошенные диапазоны данных.","links":["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/206"],"images":[],"code":206}
