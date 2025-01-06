@@ -21,7 +21,7 @@ export const HomePageView = observer(
             className={'input input-bordered w-full max-w-xs'}
           />
         </div>
-        <div className={'flex flex-row flex-wrap gap-3 py-3'}>
+        <div className={'flex flex-row flex-wrap py-3 gap-3 mx-auto'}>
           {model.filteredStatusCodes?.map((it) => {
             return <StatusCodeCard key={it.code} data={it} />;
           })}

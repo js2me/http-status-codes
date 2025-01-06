@@ -14,7 +14,7 @@ export const StatusCodeCard = ({
     <Link
       href={`/${data.code}`}
       className={cx(
-        'flex flex-col h-auto w-[calc(100%/6+32px)] aspect-square',
+        'flex flex-col h-auto w-full max-w-[240px] max-sm:max-w-full aspect-square',
         className,
       )}
     >

@@ -15,6 +15,21 @@ export const CodePageView = observer(
           </h1>
           <h2 className={'prose text-2xl'}>{model.data?.title}</h2>
           <p className={'prose text-lg'}>{model.data?.description}</p>
+          <p className={'prose text-lg'}>Источники:</p>
+          {model.data?.links.length ? (
+            model.data.links.map((link) => (
+              <a
+                referrerPolicy={'no-referrer'}
+                href={link}
+                key={link}
+                className={'link link-info'}
+              >
+                {link}
+              </a>
+            ))
+          ) : (
+            <span className={'prose text-sm opacity-80'}>Нет изображений</span>
+          )}
           <div className={'flex flex-row flex-wrap gap-4 pt-4'}>
             {model.data?.images.length ? (
               model.data?.images.map((image) => {

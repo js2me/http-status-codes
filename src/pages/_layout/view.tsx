@@ -27,12 +27,12 @@ export const LayoutView = observer(({ children, model }: LayoutViewProps) => {
             className={'size-7 mr-2 rounded-md'}
           />
           <h1 className={'prose font-mono text-base-content font-semibold'}>
-            status code
+            http status code
           </h1>
         </Link>
         <div className={'ml-auto flex flex-row gap-2'}>
           <a href={'https://github.com/js2me/http-status-codes'}>
-            <button className={'btn btn-xs btn-link'}>github</button>
+            <button className={'btn btn-xs link link-info'}>github</button>
           </a>
           <button className={'btn btn-xs'} onClick={model.switchTheme}>
             {model.theme === 'light' && 'Theme: Light'}
