@@ -21,7 +21,9 @@ export class StatusCodesModel {
   private shortListDataQuery = createQuery(
     async () => {
       const response = await fetch(
-        rootStore.router.createUrl(`/data/__generated__/short-list.json`),
+        buildEnvs.DEV
+          ? rootStore.router.createUrl(`/data/__generated__/short-list.json`)
+          : `https://raw.githubusercontent.com/js2me/http-status-codes/refs/heads/master/public/data/__generated__/short-list.json`,
       );
       const data: StatusCodeShortData[] = await response.json();
       return data;
@@ -35,7 +37,9 @@ export class StatusCodesModel {
   private fullDataQuery = createQuery(
     async ({ queryKey: [, code] }) => {
       const response = await fetch(
-        rootStore.router.createUrl(`/data/__generated__/${code}.json`),
+        buildEnvs.DEV
+          ? rootStore.router.createUrl(`/data/__generated__/${code}.json`)
+          : `https://raw.githubusercontent.com/js2me/http-status-codes/refs/heads/master/public/data/__generated__/${code}.json`,
       );
       const data: StatusCodeFullData = await response.json();
       return data;
