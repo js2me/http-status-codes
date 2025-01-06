@@ -1,5 +1,5 @@
 import { Link } from 'wouter';
-import { cx } from 'yammies/css';
+import { cx } from 'yummies/css';
 
 import { StatusCodeShortData } from '@/entities/status-codes/model';
 
@@ -24,7 +24,7 @@ export const StatusCodeCard = ({
         }
       >
         <img
-          src={data.image}
+          src={`${buildEnvs.BASE_URL || ''}${data.image}`}
           alt={''}
           className={
             'size-full border-none object-cover rounded-[inherit] absolute inset-0'

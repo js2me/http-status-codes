@@ -17,13 +17,13 @@ export const CodePageView = observer(
           <p className={'prose text-lg'}>{model.data?.description}</p>
           <div className={'flex flex-row flex-wrap gap-4 pt-4'}>
             {model.data?.images.length ? (
-              model.data?.images.map((it) => {
+              model.data?.images.map((image) => {
                 return (
                   <img
-                    key={it}
+                    key={image}
                     alt={''}
-                    src={it}
-                    className={'size-[256px] rounded-lg'}
+                    src={`${buildEnvs.BASE_URL || ''}${image}`}
+                    className={'size-[256px] object-cover rounded-lg'}
                   />
                 );
               })

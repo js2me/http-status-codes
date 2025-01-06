@@ -2,7 +2,7 @@ import { observer } from 'mobx-react-lite';
 import { ViewModelProps } from 'mobx-vm-entities';
 import { ReactNode } from 'react';
 import { Link } from 'wouter';
-import { cx } from 'yammies/css';
+import { cx } from 'yummies/css';
 
 import catImage from './assets/cat-kinkytwt.gif';
 import { LayoutVM } from './model';
@@ -30,7 +30,10 @@ export const LayoutView = observer(({ children, model }: LayoutViewProps) => {
             status code
           </h1>
         </Link>
-        <div className={'ml-auto'}>
+        <div className={'ml-auto flex flex-row gap-2'}>
+          <a href={'https://github.com/js2me/http-status-codes'}>
+            <button className={'btn btn-xs btn-link'}>github</button>
+          </a>
           <button className={'btn btn-xs'} onClick={model.switchTheme}>
             {model.theme === 'light' && 'Theme: Light'}
             {model.theme === 'dark' && 'Theme: Dark'}

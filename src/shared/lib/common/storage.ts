@@ -1,6 +1,6 @@
-export * from 'yammies/storage';
+export * from 'yummies/storage';
 
-import { createStorage } from 'yammies/storage';
+import { createStorage } from 'yummies/storage';
 
 import { storageKeyPrefix } from '@/shared/config/storage';
 
