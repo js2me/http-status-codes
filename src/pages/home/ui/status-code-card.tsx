@@ -2,6 +2,7 @@ import { Link } from 'wouter';
 import { cx } from 'yummies/css';
 
 import { StatusCodeShortData } from '@/entities/status-codes/model';
+import { useRootStore } from '@/shared/lib/mobx/root-store';
 
 export const StatusCodeCard = ({
   data,
@@ -10,6 +11,8 @@ export const StatusCodeCard = ({
   data: StatusCodeShortData;
   className?: string;
 }) => {
+  const { router } = useRootStore();
+
   return (
     <Link
       href={`/${data.code}`}
@@ -23,13 +26,15 @@ export const StatusCodeCard = ({
           'bg-base-100 rounded-md flex flex-col relative border border-base-content/50 size-full'
         }
       >
-        <img
-          src={`${buildEnvs.BASE_URL || ''}${data.image}`}
-          alt={''}
-          className={
-            'size-full border-none object-cover rounded-[inherit] absolute inset-0'
-          }
-        />
+        {data.image && (
+          <img
+            src={router.createUrl(data.image)}
+            alt={''}
+            className={
+              'size-full border-none object-cover rounded-[inherit] absolute inset-0'
+            }
+          />
+        )}
         <div
           className={
             'relative flex flex-col px-2 font-mono py-1 rounded-bl-[inherit] rounded-br-[inherit] -mb-px bg-base-300/15 border border-x-0 border-base-content/50 backdrop-blur-md mt-auto'

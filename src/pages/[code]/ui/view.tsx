@@ -28,25 +28,21 @@ export const CodePageView = observer(
               </a>
             ))
           ) : (
-            <span className={'prose text-sm opacity-80'}>Нет изображений</span>
+            <span className={'prose text-sm opacity-80'}>Нет источников</span>
           )}
           <div className={'flex flex-row flex-wrap gap-4 pt-4'}>
-            {model.data?.images.length ? (
-              model.data?.images.map((image) => {
-                return (
-                  <img
-                    key={image}
-                    alt={''}
-                    src={`${buildEnvs.BASE_URL || ''}${image}`}
-                    className={'size-[256px] object-cover rounded-lg'}
-                  />
-                );
-              })
-            ) : (
-              <span className={'prose text-sm opacity-80'}>
-                Нет изображений
-              </span>
-            )}
+            {model.data?.images.length
+              ? model.data?.images.map((image) => {
+                  return (
+                    <img
+                      key={image}
+                      alt={''}
+                      src={`${buildEnvs.BASE_URL || ''}${image}`}
+                      className={'size-[256px] object-cover rounded-lg'}
+                    />
+                  );
+                })
+              : null}
           </div>
         </div>
       </Layout>

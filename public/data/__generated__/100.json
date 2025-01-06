@@ -1,0 +1,1 @@
+{"title":"Continue","description":"Код ответа HTTP 100 Continue указывает, что все до сих пор в порядке и что клиент должен продолжить запрос или игнорировать его, если он уже завершён.","links":["https://www.rfc-editor.org/rfc/rfc9110#status.100","https://developer.mozilla.org/ru/docs/Web/HTTP/Status/100"],"images":[],"code":100}

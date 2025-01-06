@@ -1,6 +1,8 @@
 import { runInAction, when } from 'mobx';
 import { createQuery } from 'mobx-tanstack-query/preset';
 
+import { rootStore } from '@/store';
+
 export interface StatusCodeShortData {
   code: number;
   title: string;
@@ -18,10 +20,11 @@ export interface StatusCodeFullData {
 export class StatusCodesModel {
   private shortListDataQuery = createQuery(
     async () => {
-      const module: { default: StatusCodeShortData[] } = await import(
-        `./data/__generated__/short-list.json`
+      const response = await fetch(
+        rootStore.router.createUrl(`/data/__generated__/short-list.json`),
       );
-      return module.default;
+      const data: StatusCodeShortData[] = await response.json();
+      return data;
     },
     {
       enableOnDemand: true,
@@ -31,10 +34,11 @@ export class StatusCodesModel {
 
   private fullDataQuery = createQuery(
     async ({ queryKey: [, code] }) => {
-      const module: { default: StatusCodeFullData } = await import(
-        `./data/__generated__/${code}.json`
+      const response = await fetch(
+        rootStore.router.createUrl(`/data/__generated__/${code}.json`),
       );
-      return module.default;
+      const data: StatusCodeFullData = await response.json();
+      return data;
     },
     {
       enableOnDemand: true,

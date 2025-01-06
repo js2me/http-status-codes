@@ -2,8 +2,8 @@ import fs from "node:fs"
 import path from "path"
 
 
-const outputDir = path.resolve('./src/entities/status-codes/data/__generated__')
-const fullDataFilePath =path.resolve('./src/entities/status-codes/data/full-data.json')
+const outputDir = path.resolve('./public/data/__generated__')
+const fullDataFilePath =path.resolve('./public/data/full-data.json')
 
 type Data = {
   code: number;
