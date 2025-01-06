@@ -1,0 +1,1 @@
+{"title":"Not Acceptable","description":"Код ответа HTTP 406 Not Acceptable указывает, что сервер не может предоставить представление ресурса, соответствующее заголовкам Accept в запросе.","links":["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/406"],"images":[],"code":406}

@@ -1,1 +1,0 @@
-const e="Already Reported",t="Код ответа HTTP 208 Already Reported указывает, что члены многократного статуса уже были перечислены в предыдущем ответе.",o=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/208"],s=[],c=208,d={title:e,description:t,links:o,images:s,code:208};export{c as code,d as default,t as description,s as images,o as links,e as title};

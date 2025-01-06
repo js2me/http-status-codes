@@ -1,0 +1,1 @@
+{"title":"Permanent Redirect","description":"**Код ответа HTTP 308 Permanent Redirect** указывает, что запрашиваемый ресурс был окончательно перемещён на новый URI и клиент должен использовать тот же метод при повторном запросе.","links":["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/308"],"images":[],"code":308}

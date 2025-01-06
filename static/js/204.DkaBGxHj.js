@@ -1,1 +1,0 @@
-const t="No Content",o="Код ответа HTTP 204 No Content указывает, что запрос успешен, но клиенту не нужно уходить со своей текущей страницы.",e=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/204"],s=[],n=204,c={title:t,description:o,links:e,images:s,code:204};export{n as code,c as default,o as description,s as images,e as links,t as title};

@@ -1,1 +1,0 @@
-const t="Expectation Failed",e="Код ответа HTTP 417 Expectation Failed указывает на то, что ожидание, указанное в заголовке Expect, не может быть выполнено.",o=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/417"],c=[],s=417,i={title:t,description:e,links:o,images:c,code:417};export{s as code,i as default,e as description,c as images,o as links,t as title};

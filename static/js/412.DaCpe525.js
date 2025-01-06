@@ -1,1 +1,0 @@
-const o="Precondition Failed",t="Код ответа HTTP 412 Precondition Failed указывает, что доступ к ресурсу был отклонён из-за несоответствия условий запроса.",e=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/412"],s=[],c=412,i={title:o,description:t,links:e,images:s,code:412};export{c as code,i as default,t as description,s as images,e as links,o as title};

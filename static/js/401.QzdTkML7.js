@@ -1,1 +1,0 @@
-const t="Unauthorized",o="**Код ответа HTTP 401 Unauthorized** указывает, что запрос требует аутентификации пользователя.",e=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/401"],s=[],c=401,n={title:t,description:o,links:e,images:s,code:401};export{c as code,n as default,o as description,s as images,e as links,t as title};

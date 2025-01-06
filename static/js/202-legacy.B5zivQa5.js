@@ -1,1 +1,0 @@
-System.register([],(function(e,t){"use strict";return{execute:function(){const t=e("title","Accepted"),i=e("description","Код состояния HTTP 202 Accepted указывает, что запрос получен, но ещё не обработан."),c=e("links",["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/202"]),s=e("images",[]),o=e("code",202);e("default",{title:t,description:i,links:c,images:s,code:o})}}}));

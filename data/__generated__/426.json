@@ -1,0 +1,1 @@
+{"title":"Upgrade Required","description":"Код ответа HTTP 426 Upgrade Required указывает, что сервер отказывается выполнять запрос с использованием текущего протокола и требует обновления до другого протокола.","links":["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/426"],"images":[],"code":426}

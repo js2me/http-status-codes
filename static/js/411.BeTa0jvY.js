@@ -1,1 +1,0 @@
-const t="Length Required",e="Код ответа HTTP 411 Length Required указывает, что сервер отказывается принять запрос без заголовка Content-Length.",o=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/411"],n=[],s=411,c={title:t,description:e,links:o,images:n,code:411};export{s as code,c as default,e as description,n as images,o as links,t as title};

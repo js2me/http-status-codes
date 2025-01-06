@@ -1,1 +1,0 @@
-const t="Partial Content",o="Код ответа HTTP 206 Partial Content указывает, что запрос успешен и тело содержит запрошенные диапазоны данных.",e=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/206"],s=[],n=206,c={title:t,description:o,links:e,images:s,code:206};export{n as code,c as default,o as description,s as images,e as links,t as title};

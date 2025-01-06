@@ -1,1 +1,0 @@
-const o="URI Too Long",t="Код ответа HTTP 414 URI Too Long указывает, что запрашиваемый URI длиннее, чем сервер готов интерпретировать.",s=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/414"],e=[],c=414,n={title:o,description:t,links:s,images:e,code:414};export{c as code,n as default,t as description,e as images,s as links,o as title};

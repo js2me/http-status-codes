@@ -1,1 +1,0 @@
-const t="Bad Request",e="**Код ответа HTTP 400 Bad Request** указывает, что сервер не может обработать запрос из-за неверного синтаксиса.",s=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/400"],o=[],c=400,d={title:t,description:e,links:s,images:o,code:400};export{c as code,d as default,e as description,o as images,s as links,t as title};

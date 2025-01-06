@@ -1,1 +1,0 @@
-const o="Method Not Allowed",t="Код ответа HTTP 405 Method Not Allowed указывает, что метод запроса не поддерживается для данного ресурса.",e=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/405"],s=[],c=405,d={title:o,description:t,links:e,images:s,code:405};export{c as code,d as default,t as description,s as images,e as links,o as title};

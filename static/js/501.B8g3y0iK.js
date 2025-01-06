@@ -1,1 +1,0 @@
-const t="Not Implemented",e="Код ответа HTTP 501 Not Implemented указывает, что сервер не поддерживает функциональность, необходимую для выполнения запроса.",o=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/501"],s=[],c=501,n={title:t,description:e,links:o,images:s,code:501};export{c as code,n as default,e as description,s as images,o as links,t as title};

@@ -1,1 +1,0 @@
-const o="Payload Too Large",t="Код ответа HTTP 413 Payload Too Large указывает, что объект запроса превышает ограничения, установленные сервером.",e=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/413"],s=[],a=413,c={title:o,description:t,links:e,images:s,code:413};export{a as code,c as default,t as description,s as images,e as links,o as title};

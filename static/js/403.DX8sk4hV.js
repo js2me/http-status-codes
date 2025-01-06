@@ -1,1 +1,0 @@
-const o="Forbidden",t="**Код ответа HTTP 403 Forbidden** указывает, что сервер понимает запрос, но отказывается его выполнять.",e=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/403"],s=[],c=403,d={title:o,description:t,links:e,images:s,code:403};export{c as code,d as default,t as description,s as images,e as links,o as title};

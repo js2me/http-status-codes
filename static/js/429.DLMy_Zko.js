@@ -1,1 +1,0 @@
-const o="Too Many Requests",s="Код ответа HTTP 429 Too Many Requests указывает, что клиент отправил слишком много запросов за короткий промежуток времени.",t=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/429"],e=[],c=429,n={title:o,description:s,links:t,images:e,code:429};export{c as code,n as default,s as description,e as images,t as links,o as title};

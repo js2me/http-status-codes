@@ -1,0 +1,1 @@
+{"title":"Gateway Timeout","description":"Код ответа HTTP 504 Gateway Timeout указывает, что сервер, действующий как прокси или шлюз, не получил своевременный ответ от вышестоящего сервера.","links":["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/504"],"images":[],"code":504}

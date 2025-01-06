@@ -1,1 +1,0 @@
-const o="Not Found",t="Код ответа HTTP 404 Not Found указывает, что сервер не может найти запрашиваемый ресурс.",s=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/404"],e=[],c=404,n={title:o,description:t,links:s,images:e,code:404};export{c as code,n as default,t as description,e as images,s as links,o as title};

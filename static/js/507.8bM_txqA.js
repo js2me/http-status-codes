@@ -1,1 +1,0 @@
-const t="Insufficient Storage",o="Код ответа HTTP 507 Insufficient Storage указывает, что сервер не может сохранить представление для обработки запроса.",e=["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/507"],s=[],c=507,n={title:t,description:o,links:e,images:s,code:507};export{c as code,n as default,o as description,s as images,e as links,t as title};
