@@ -16,6 +16,11 @@ export const StatusCodeCard = ({
   return (
     <Link
       href={`/${data.code}`}
+      onClick={(e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        router.navigate(`/${data.code}`);
+      }}
       className={cx(
         'flex flex-col h-auto w-[240px] max-sm:max-w-full aspect-square',
         className,
@@ -28,7 +33,7 @@ export const StatusCodeCard = ({
       >
         {data.image && (
           <img
-            src={router.createUrl(data.image)}
+            src={`${buildEnvs.BASE_URL || ''}${data.image}`}
             alt={''}
             className={
               'size-full border-none object-cover rounded-[inherit] absolute inset-0'

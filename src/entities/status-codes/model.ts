@@ -1,8 +1,6 @@
 import { runInAction, when } from 'mobx';
 import { createQuery } from 'mobx-tanstack-query/preset';
 
-import { rootStore } from '@/store';
-
 export interface StatusCodeShortData {
   code: number;
   title: string;
@@ -22,7 +20,7 @@ export class StatusCodesModel {
     async () => {
       const response = await fetch(
         buildEnvs.DEV
-          ? rootStore.router.createUrl(`/data/__generated__/short-list.json`)
+          ? `${buildEnvs.BASE_URL}/data/__generated__/short-list.json`
           : `https://raw.githubusercontent.com/js2me/http-status-codes/refs/heads/master/public/data/__generated__/short-list.json`,
       );
       const data: StatusCodeShortData[] = await response.json();
@@ -38,7 +36,7 @@ export class StatusCodesModel {
     async ({ queryKey: [, code] }) => {
       const response = await fetch(
         buildEnvs.DEV
-          ? rootStore.router.createUrl(`/data/__generated__/${code}.json`)
+          ? `${buildEnvs.BASE_URL}/data/__generated__/${code}.json`
           : `https://raw.githubusercontent.com/js2me/http-status-codes/refs/heads/master/public/data/__generated__/${code}.json`,
       );
       const data: StatusCodeFullData = await response.json();
