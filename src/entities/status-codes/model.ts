@@ -1,6 +1,8 @@
 import { runInAction, when } from 'mobx';
 import { createQuery } from 'mobx-tanstack-query/preset';
 
+import { rootStore } from '@/store';
+
 export interface StatusCodeShortData {
   code: number;
   title: string;
@@ -19,9 +21,13 @@ export class StatusCodesModel {
   private shortListDataQuery = createQuery(
     async () => {
       const response = await fetch(
-        buildEnvs.DEV
-          ? `${buildEnvs.BASE_URL}/data/__generated__/short-list.json`
-          : `https://raw.githubusercontent.com/js2me/http-status-codes/refs/heads/master/public/data/__generated__/short-list.json`,
+        rootStore.router.createUrl({
+          baseUrl: buildEnvs.DEV
+            ? rootStore.router.baseUrl!
+            : 'https://raw.githubusercontent.com/js2me/http-status-codes/refs/heads/master/public',
+          hash: '',
+          pathname: `/data/__generated__/short-list.json`,
+        }),
       );
       const data: StatusCodeShortData[] = await response.json();
       return data;
@@ -35,9 +41,13 @@ export class StatusCodesModel {
   private fullDataQuery = createQuery(
     async ({ queryKey: [, code] }) => {
       const response = await fetch(
-        buildEnvs.DEV
-          ? `${buildEnvs.BASE_URL}/data/__generated__/${code}.json`
-          : `https://raw.githubusercontent.com/js2me/http-status-codes/refs/heads/master/public/data/__generated__/${code}.json`,
+        rootStore.router.createUrl({
+          baseUrl: buildEnvs.DEV
+            ? rootStore.router.baseUrl!
+            : 'https://raw.githubusercontent.com/js2me/http-status-codes/refs/heads/master/public',
+          hash: '',
+          pathname: `/data/__generated__/${code}.json`,
+        }),
       );
       const data: StatusCodeFullData = await response.json();
       return data;
