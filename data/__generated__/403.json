@@ -1,1 +1,1 @@
-{"title":"Forbidden","description":"**Код ответа HTTP 403 Forbidden** указывает, что сервер понимает запрос, но отказывается его выполнять.","links":["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/403"],"images":[],"code":403}
+{"title":"Forbidden","description":"**Код ответа HTTP 403 Forbidden** указывает, что сервер понимает запрос, но отказывается его выполнять.","links":["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/403"],"images":["/status-code-images/403-1.png","/status-code-images/403-2.png","/status-code-images/403-3.png"],"code":403}
