@@ -224,7 +224,9 @@
     "links": [
       "https://developer.mozilla.org/ru/docs/Web/HTTP/Status/400"
     ],
-    "images": [],
+    "images": [
+      "/status-code-images/400-1.png"
+    ],
     "code": 400
   },
   {
@@ -251,7 +253,11 @@
     "links": [
       "https://developer.mozilla.org/ru/docs/Web/HTTP/Status/403"
     ],
-    "images": [],
+    "images": [
+      "/status-code-images/403-1.png",
+      "/status-code-images/403-2.png",
+      "/status-code-images/403-3.png"
+    ],
     "code": 403
   },
   {
