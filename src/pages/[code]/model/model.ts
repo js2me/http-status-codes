@@ -25,8 +25,8 @@ export class CodePageVM extends PageViewModelImpl<{ code: string }> {
       (layout) => {
         if (layout) {
           runInAction(() => {
-            layout.headerAppendText = `${this.pathParams.code}`
-          })
+            layout.headerAppendText = this.pathParams.code;
+          });
         }
       },
       {
@@ -42,7 +42,7 @@ export class CodePageVM extends PageViewModelImpl<{ code: string }> {
     if (this.layout) {
       runInAction(() => {
         this.layout!.headerAppendText = '';
-      }) 
+      });
     }
   }
 }
