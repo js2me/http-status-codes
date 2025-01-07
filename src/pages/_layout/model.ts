@@ -1,3 +1,4 @@
+import { observable } from 'mobx';
 import { ViewModelImpl } from 'mobx-vm-entities';
 
 import { rootStore } from '@/store';
@@ -7,4 +8,7 @@ export class LayoutVM extends ViewModelImpl {
     return rootStore.theme.theme;
   }
   switchTheme = rootStore.theme.switchTheme;
+
+  @observable
+  accessor headerAppendText = '';
 }

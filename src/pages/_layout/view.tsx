@@ -4,6 +4,8 @@ import { ReactNode } from 'react';
 import { Link } from 'wouter';
 import { cx } from 'yummies/css';
 
+import { useRootStore } from '@/shared/lib/mobx/root-store';
+
 import catImage from './assets/cat-kinkytwt.gif';
 import { LayoutVM } from './model';
 
@@ -13,6 +15,8 @@ interface LayoutViewProps extends ViewModelProps<LayoutVM> {
 }
 
 export const LayoutView = observer(({ children, model }: LayoutViewProps) => {
+  const { router } = useRootStore();
+
   return (
     <div
       className={cx(
@@ -20,14 +24,29 @@ export const LayoutView = observer(({ children, model }: LayoutViewProps) => {
       )}
     >
       <div className={'flex flex-row'}>
-        <Link className={'flex flex-row'} href={'/'}>
+        <Link
+          className={'flex flex-row'}
+          href={'/'}
+          onClick={(e) => {
+            e.preventDefault();
+            router.navigate('/');
+          }}
+        >
           <img
             src={catImage}
             alt={'cat'}
             className={'size-7 mr-2 rounded-md'}
           />
           <h1 className={'prose font-mono text-base-content font-semibold'}>
-            http status code
+            http status codes
+            {model.headerAppendText && (
+              <>
+                <span className={'ml-2 opacity-20'}>/</span>
+                <span className={'ml-2 opacity-60 cursor-default'}>
+                  {model.headerAppendText}
+                </span>
+              </>
+            )}
           </h1>
         </Link>
         <div className={'ml-auto flex flex-row gap-2'}>
