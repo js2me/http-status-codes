@@ -9,7 +9,6 @@ import { IMobxRouter, MobxRouter } from 'mobx-wouter';
 import { ToastStore } from '@/shared/_entities/toast';
 import { ThemeStoreImpl } from '@/shared/lib/mobx/theme';
 
-
 export class RootStoreImpl implements RootStore {
   router: IMobxRouter;
   theme: TwoColorThemeStore;
