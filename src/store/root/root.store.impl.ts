@@ -9,6 +9,7 @@ import { IMobxRouter, MobxRouter } from 'mobx-wouter';
 import { ToastStore } from '@/shared/_entities/toast';
 import { ThemeStoreImpl } from '@/shared/lib/mobx/theme';
 
+
 export class RootStoreImpl implements RootStore {
   router: IMobxRouter;
   theme: TwoColorThemeStore;
@@ -22,6 +23,7 @@ export class RootStoreImpl implements RootStore {
     this.router = new MobxRouter({
       type: 'hash',
       baseUrl: buildEnvs.BASE_URL || '/',
+      useStartViewTransition: true,
     });
   }
 }
