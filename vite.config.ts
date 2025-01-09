@@ -26,7 +26,7 @@ dotenv.config({
 const browserTargets = browserslist.loadConfig({ path: '.' });
 
 const baseUrl = process.env.PUBLIC_URL || '/';
-const port = +process.env.PORT || 8081;
+const port = +Number(process.env.PORT) || 8081;
 
 const useProxyTargetApiUrl = isPreview || isDev;
 

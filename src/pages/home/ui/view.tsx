@@ -3,7 +3,7 @@ import { ViewModelProps } from 'mobx-vm-entities';
 
 import { HomePageVM } from '../model';
 
-import { StatusCodeCard } from './status-code-card';
+import { StatusCodesGroup } from './status-codes-group';
 
 export const HomePageView = observer(
   ({ model }: ViewModelProps<HomePageVM>) => {
@@ -21,9 +21,15 @@ export const HomePageView = observer(
             className={'input input-bordered w-full max-w-xs'}
           />
         </div>
-        <div className={'flex flex-row flex-wrap py-3 gap-3 mx-auto'}>
-          {model.filteredStatusCodes?.map((it) => {
-            return <StatusCodeCard key={it.code} data={it} />;
+        <div className={'flex flex-col gap-10 mt-4'}>
+          {model.statusCodeGroups.map(([classification, codes]) => {
+            return (
+              <StatusCodesGroup
+                key={classification}
+                classification={classification}
+                codes={codes}
+              />
+            );
           })}
         </div>
       </div>

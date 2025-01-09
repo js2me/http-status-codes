@@ -50,8 +50,8 @@
     "mobx-react-lite": "^4.1.0",
     "mobx-shared-entities": "^4.0.9",
     "mobx-tanstack-query": "^3.2.1",
-    "mobx-vm-entities": "^5.0.12",
-    "mobx-wouter": "^1.2.24",
+    "mobx-vm-entities": "^5.0.19",
+    "mobx-wouter": "^1.2.31",
     "next-themes": "^0.2.1",
     "patronum": "^2.3.0",
     "prettier": "^3.4.2",
@@ -63,7 +63,7 @@
     "sonner": "^1.7.1",
     "storage-sync-accessor-decorator": "^1.0.3",
     "wouter": "^3.3.5",
-    "yummies": "^3.0.3"
+    "yummies": "^3.0.6"
   },
   "devDependencies": {
     "@effector/swc-plugin": "^0.0.10",

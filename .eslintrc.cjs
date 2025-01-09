@@ -7,7 +7,8 @@ module.exports = {
   overrides: [
     {
       files: [
-        "data/*.ts"
+        "data/*.ts",
+        "vite.config.ts"
       ],
       parserOptions: {
         project: 'tsconfig.node.json',

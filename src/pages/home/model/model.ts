@@ -5,7 +5,7 @@ import { StatusCodesModel } from '@/entities/status-codes/model';
 import { CodePage } from '@/pages/[code]';
 
 export class HomePageVM extends PageViewModelImpl {
-  private statusCodes = new StatusCodesModel();
+  private statusCodesData = new StatusCodesModel();
 
   @observable
   accessor search: string = '';
@@ -15,12 +15,29 @@ export class HomePageVM extends PageViewModelImpl {
     this.search = search;
   }
 
-  get filteredStatusCodes() {
-    return this.statusCodes.shortList?.filter(
-      (it) =>
-        it.code.toString().includes(this.search) ||
-        it.title.toLowerCase().includes(this.search.toLowerCase()),
+  get statusCodes() {
+    const statusCodes = this.statusCodesData.shortList || [];
+    const searchText = this.search.toLowerCase();
+
+    if (!searchText) {
+      return statusCodes;
+    }
+
+    return statusCodes.filter((it) => {
+      return (
+        it.code.toString().includes(searchText) ||
+        it.title.toLowerCase().includes(searchText) ||
+        this.statusCodesData.getClassification(it.code).includes(searchText)
+      );
+    });
+  }
+
+  get statusCodeGroups() {
+    const groups = Object.groupBy(this.statusCodes || [], (item) =>
+      this.statusCodesData.getClassification(item.code),
     );
+
+    return Object.entries(groups) as RecordEntries<typeof groups>;
   }
 
   mount(): void {

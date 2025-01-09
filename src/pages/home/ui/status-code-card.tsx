@@ -22,7 +22,7 @@ export const StatusCodeCard = ({
         router.navigate(`/${data.code}`);
       }}
       className={cx(
-        'flex flex-col h-auto w-[240px] max-sm:max-w-full aspect-square',
+        'flex flex-col h-auto w-[14.625rem] max-sm:max-w-full aspect-square text-base-content',
         className,
       )}
     >
@@ -42,7 +42,7 @@ export const StatusCodeCard = ({
         )}
         <div
           className={
-            'relative flex flex-col px-2 font-mono py-1 rounded-bl-[inherit] rounded-br-[inherit] -mb-px bg-base-300/15 border border-x-0 border-base-content/50 backdrop-blur-md mt-auto'
+            'relative flex flex-col px-2 font-mono py-1 rounded-bl-[inherit] rounded-br-[inherit] -mb-px bg-base-300/50 dark:bg-base-300/15 border border-x-0 border-base-content/50 backdrop-blur-md mt-auto'
           }
         >
           <h2 className={'prose font-semibold text-lg'}>{data.code}</h2>

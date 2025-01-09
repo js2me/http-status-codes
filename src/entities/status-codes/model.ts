@@ -9,6 +9,16 @@ export interface StatusCodeShortData {
   image?: string;
 }
 
+const classificationRanges = {
+  informational: [100, 199],
+  successful: [200, 299],
+  redirection: [300, 399],
+  clientError: [400, 499],
+  serverError: [500, 599],
+} as const;
+
+export type StatusCodeClassification = keyof typeof classificationRanges;
+
 export interface StatusCodeFullData {
   code: number;
   title: string;
@@ -38,6 +48,31 @@ export class StatusCodesModel {
     },
   );
 
+  classificationRanges = classificationRanges;
+
+  getClassification(code: number): keyof typeof this.classificationRanges {
+    const { clientError, informational, redirection, successful } =
+      this.classificationRanges;
+
+    if (informational[0] >= code && code <= informational[1]) {
+      return 'informational';
+    }
+
+    if (successful[0] >= code && code <= successful[1]) {
+      return 'successful';
+    }
+
+    if (redirection[0] >= code && code <= redirection[1]) {
+      return 'redirection';
+    }
+
+    if (clientError[0] >= code && code <= clientError[1]) {
+      return 'clientError';
+    }
+
+    return 'serverError';
+  }
+
   private fullDataQuery = createQuery(
     async ({ queryKey: [, code] }) => {
       const response = await fetch(
@@ -50,7 +85,10 @@ export class StatusCodesModel {
         }),
       );
       const data: StatusCodeFullData = await response.json();
-      return data;
+      return {
+        ...data,
+        classification: this.getClassification(data.code),
+      };
     },
     {
       enableOnDemand: true,

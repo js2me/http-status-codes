@@ -13,6 +13,8 @@ export class ThemeStoreImpl extends TwoColorThemeStore {
       () => this.colorScheme,
       (colorScheme) => {
         htmlElement.dataset.theme = colorScheme;
+        htmlElement.classList.toggle('dark', colorScheme === 'dark');
+        htmlElement.classList.toggle('light', colorScheme === 'light');
       },
       {
         fireImmediately: true,
