@@ -2,6 +2,7 @@ import { action, observable } from 'mobx';
 import { PageViewModelImpl } from 'mobx-wouter';
 
 import { StatusCodesModel } from '@/entities/status-codes/model';
+import { CodePage } from '@/pages/[code]';
 
 export class HomePageVM extends PageViewModelImpl {
   private statusCodes = new StatusCodesModel();
@@ -20,5 +21,10 @@ export class HomePageVM extends PageViewModelImpl {
         it.code.toString().includes(this.search) ||
         it.title.toLowerCase().includes(this.search.toLowerCase()),
     );
+  }
+
+  mount(): void {
+    super.mount();
+    CodePage.preload();
   }
 }

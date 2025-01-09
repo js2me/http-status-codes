@@ -21,7 +21,7 @@ export const Routing = ({
             <HomePage />
           </Layout>
         </Route>
-        <Route path={'/:code'} component={CodePage} />
+        <Route path={'/:code'} component={CodePage as any} />
         <Route path={'*'}>
           <NotFoundPage />
         </Route>
