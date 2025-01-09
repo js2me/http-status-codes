@@ -54,7 +54,11 @@ export class StatusCodesModel {
     },
     {
       enableOnDemand: true,
-      queryKey: () => ['status-codes', null as Maybe<number>] as const,
+      queryKey: () =>
+        [
+          ...this.shortListDataQuery.options.queryKey,
+          null as Maybe<number>,
+        ] as const,
       enabled: ({ queryKey }) => typeof queryKey[1] === 'number',
     },
   );

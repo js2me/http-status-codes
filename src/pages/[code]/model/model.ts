@@ -7,6 +7,13 @@ import { Layout } from '@/pages/_layout';
 export class CodePageVM extends PageViewModelImpl<{ code: string }> {
   private statusCodes = new StatusCodesModel();
 
+  get isLoading() {
+    return (
+      this.statusCodes.isFullDataLoading ||
+      this.statusCodes.fullData?.code !== +this.pathParams.code
+    );
+  }
+
   get data() {
     return this.statusCodes.fullData;
   }

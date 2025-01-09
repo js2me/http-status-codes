@@ -8,7 +8,7 @@ import { CodePageVM } from '../model';
 export const CodePageView = observer(
   ({ model }: ViewModelProps<CodePageVM>) => {
     return (
-      <Layout>
+      <Layout loading={model.isLoading}>
         <div className={'flex flex-col gap-3'}>
           <h1
             className={
