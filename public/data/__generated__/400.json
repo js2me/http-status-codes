@@ -1,1 +1,0 @@
-{"title":"Bad Request","description":"**Код ответа HTTP 400 Bad Request** указывает, что сервер не может обработать запрос из-за неверного синтаксиса.","links":["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/400"],"images":["/status-code-images/400-1.png"],"code":400}

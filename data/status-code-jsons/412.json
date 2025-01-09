@@ -1,0 +1,8 @@
+{
+  "title": "Precondition Failed",
+  "description": "Код ответа HTTP 412 Precondition Failed указывает, что доступ к ресурсу был отклонён из-за несоответствия условий запроса.",
+  "links": [
+    "https://developer.mozilla.org/ru/docs/Web/HTTP/Status/412"
+  ],
+  "code": 412
+}

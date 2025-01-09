@@ -1,1 +1,0 @@
-{"title":"See Other","description":"Код ответа HTTP 303 See Other указывает, что клиент должен выполнить запрос по другому URI для получения представления ресурса.","links":["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/303"],"images":[],"code":303}

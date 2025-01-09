@@ -1,0 +1,8 @@
+{
+  "title": "HTTP Version Not Supported",
+  "description": "Код ответа HTTP 505 HTTP Version Not Supported указывает, что сервер не поддерживает версию протокола HTTP, используемую в запросе.",
+  "links": [
+    "https://developer.mozilla.org/ru/docs/Web/HTTP/Status/505"
+  ],
+  "code": 505
+}

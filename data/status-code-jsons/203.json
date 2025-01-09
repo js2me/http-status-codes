@@ -1,0 +1,9 @@
+{
+  "title": "Non-Authoritative Information",
+  "description": "Код состояния HTTP 203 Non-Authoritative Information указывает, что запрос был успешным, но прилагаемая полезная нагрузка была изменена.",
+  "links": [
+    "https://www.rfc-editor.org/rfc/rfc9110#section-15.3.4",
+    "https://developer.mozilla.org/ru/docs/Web/HTTP/Status/203"
+  ],
+  "code": 203
+}

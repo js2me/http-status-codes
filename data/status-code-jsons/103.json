@@ -1,0 +1,8 @@
+{
+  "title": "Early Hints",
+  "description": "HTTP код 103 Early Hints предназначен для использования с заголовком Link, чтобы клиент мог начать предварительную загрузку пока сервер готовит ответ.",
+  "links": [
+    "https://developer.mozilla.org/ru/docs/Web/HTTP/Status/103"
+  ],
+  "code": 103
+}

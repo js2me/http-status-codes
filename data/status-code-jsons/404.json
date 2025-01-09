@@ -1,0 +1,8 @@
+{
+  "title": "Not Found",
+  "description": "Код ответа HTTP 404 Not Found указывает, что сервер не может найти запрашиваемый ресурс.",
+  "links": [
+    "https://developer.mozilla.org/ru/docs/Web/HTTP/Status/404"
+  ],
+  "code": 404
+}

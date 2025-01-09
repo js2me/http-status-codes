@@ -1,0 +1,8 @@
+{
+  "title": "Not Modified",
+  "description": "Код ответа HTTP 304 Not Modified указывает, что ресурс не был изменён с момента последнего запроса клиента.",
+  "links": [
+    "https://developer.mozilla.org/ru/docs/Web/HTTP/Status/304"
+  ],
+  "code": 304
+}

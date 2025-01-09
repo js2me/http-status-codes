@@ -1,0 +1,9 @@
+{
+  "title": "Switching Protocol",
+  "description": "Код ответа протокола HTTP 101 Switching Protocol указывает протокол, который сервер переключает, используя клиентский запрос Upgrade.",
+  "links": [
+    "https://www.rfc-editor.org/rfc/rfc9110#section-15.2.2",
+    "https://developer.mozilla.org/ru/docs/Web/HTTP/Status/101"
+  ],
+  "code": 101
+}

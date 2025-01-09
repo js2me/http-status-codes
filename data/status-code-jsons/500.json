@@ -1,0 +1,8 @@
+{
+  "title": "Internal Server Error",
+  "description": "Код ответа HTTP 500 Internal Server Error указывает на то, что сервер столкнулся с неожиданной ошибкой при обработке запроса.",
+  "links": [
+    "https://developer.mozilla.org/ru/docs/Web/HTTP/Status/500"
+  ],
+  "code": 500
+}

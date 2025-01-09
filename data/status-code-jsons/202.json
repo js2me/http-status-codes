@@ -1,0 +1,9 @@
+{
+  "title": "Accepted",
+  "description": "Код состояния HTTP 202 Accepted указывает, что запрос получен, но ещё не обработан.",
+  "links": [
+    "https://www.rfc-editor.org/rfc/rfc9110#section-15.3.3",
+    "https://developer.mozilla.org/ru/docs/Web/HTTP/Status/202"
+  ],
+  "code": 202
+}

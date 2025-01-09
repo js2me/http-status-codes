@@ -26,7 +26,7 @@ export class StatusCodesModel {
             ? rootStore.router.baseUrl!
             : 'https://raw.githubusercontent.com/js2me/http-status-codes/refs/heads/master/public',
           hash: '',
-          pathname: `/data/__generated__/short-list.json`,
+          pathname: `/data/short-list.json`,
         }),
       );
       const data: StatusCodeShortData[] = await response.json();
@@ -46,7 +46,7 @@ export class StatusCodesModel {
             ? rootStore.router.baseUrl!
             : 'https://raw.githubusercontent.com/js2me/http-status-codes/refs/heads/master/public',
           hash: '',
-          pathname: `/data/__generated__/${code}.json`,
+          pathname: `/data/${code}.json`,
         }),
       );
       const data: StatusCodeFullData = await response.json();

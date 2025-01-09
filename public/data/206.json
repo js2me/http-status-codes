@@ -1,0 +1,1 @@
+{"title":"Partial Content","description":"Код ответа HTTP 206 Partial Content указывает, что запрос успешен и тело содержит запрошенные диапазоны данных.","links":["https://www.rfc-editor.org/rfc/rfc9110#section-15.3.7","https://developer.mozilla.org/ru/docs/Web/HTTP/Status/206"],"code":206,"images":[]}

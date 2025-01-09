@@ -1,0 +1,8 @@
+{
+  "title": "Network Authentication Required",
+  "description": "Код ответа HTTP 511 Network Authentication Required указывает на необходимость аутентификации для доступа к сети.",
+  "links": [
+    "https://developer.mozilla.org/ru/docs/Web/HTTP/Status/511"
+  ],
+  "code": 511
+}

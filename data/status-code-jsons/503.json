@@ -1,0 +1,8 @@
+{
+  "title": "Service Unavailable",
+  "description": "Код ответа HTTP 503 Service Unavailable указывает, что сервер временно не может обработать запрос из-за перегрузки или проведения технического обслуживания.",
+  "links": [
+    "https://developer.mozilla.org/ru/docs/Web/HTTP/Status/503"
+  ],
+  "code": 503
+}

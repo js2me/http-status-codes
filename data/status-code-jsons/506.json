@@ -1,0 +1,8 @@
+{
+  "title": "Variant Also Negotiates",
+  "description": "Код ответа HTTP 506 Variant Also Negotiates указывает на ошибку конфигурации сервера при выполнении согласования контента.",
+  "links": [
+    "https://developer.mozilla.org/ru/docs/Web/HTTP/Status/506"
+  ],
+  "code": 506
+}

@@ -4,4 +4,14 @@ module.exports = {
     'unicorn/prevent-abbreviations': 'off',
     'unicorn/consistent-function-scoping': 'off'
   },
+  overrides: [
+    {
+      files: [
+        "data/*.ts"
+      ],
+      parserOptions: {
+        project: 'tsconfig.node.json',
+      },
+    }
+  ]
 };

@@ -1,0 +1,9 @@
+{
+  "title": "Reset Content",
+  "description": "Код ответа HTTP 205 Reset Content сообщает клиенту об изменении вида документа, например, для очистки содержимого формы.",
+  "links": [
+    "https://www.rfc-editor.org/rfc/rfc9110#section-15.3.6",
+    "https://developer.mozilla.org/ru/docs/Web/HTTP/Status/205"
+  ],
+  "code": 205
+}

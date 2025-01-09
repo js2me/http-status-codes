@@ -1,1 +1,0 @@
-{"title":"Method Not Allowed","description":"Код ответа HTTP 405 Method Not Allowed указывает, что метод запроса не поддерживается для данного ресурса.","links":["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/405"],"images":[],"code":405}

@@ -1,0 +1,8 @@
+{
+  "title": "Use Proxy",
+  "description": "**Код ответа HTTP 305 Use Proxy** указывает, что запрашиваемый ресурс должен быть доступен через прокси-сервер.",
+  "links": [
+    "https://developer.mozilla.org/ru/docs/Web/HTTP/Status/305"
+  ],
+  "code": 305
+}

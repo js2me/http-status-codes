@@ -3,7 +3,16 @@ import path from "path"
 
 
 const outputDir = path.resolve('./public/data/__generated__')
-const fullDataFilePath =path.resolve('./public/data/full-data.json')
+const fullDataFilePath = path.resolve('./public/data/raw.json')
+const statusCodeImagesDir = path.resolve('./public/status-code-images')
+const imageFileNames = fs.readdirSync(statusCodeImagesDir);
+
+type RawData = {
+  code: number;
+  title: string;
+  description: string;
+  links: string[];
+}
 
 type Data = {
   code: number;
@@ -13,7 +22,11 @@ type Data = {
   images: string[]
 }
 
-const data = JSON.parse(fs.readFileSync(fullDataFilePath).toString()) as Data[]
+const rawData = JSON.parse(fs.readFileSync(fullDataFilePath).toString()) as RawData[]
+
+const data = rawData.map((item): Data => {
+
+})
 
 try {
   fs.rmdirSync(outputDir)

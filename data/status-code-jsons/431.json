@@ -1,0 +1,8 @@
+{
+  "title": "Request Header Fields Too Large",
+  "description": "Код ответа HTTP 431 Request Header Fields Too Large указывает, что сервер отказывается обработать запрос из-за слишком больших заголовков.",
+  "links": [
+    "https://developer.mozilla.org/ru/docs/Web/HTTP/Status/431"
+  ],
+  "code": 431
+}

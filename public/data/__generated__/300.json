@@ -1,1 +1,0 @@
-{"title":"Multiple Choices","description":"Код ответа HTTP 300 Multiple Choices указывает, что запрашиваемый ресурс имеет несколько представлений, и клиент должен выбрать одно из них.","links":["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/300"],"images":[],"code":300}

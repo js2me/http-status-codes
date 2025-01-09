@@ -8,12 +8,11 @@ import { defineConfig } from 'vite';
 import { default as checker } from 'vite-plugin-checker';
 import { default as eslint } from 'vite-plugin-eslint';
 import { createHtmlPlugin as html } from 'vite-plugin-html';
-import { VitePWA } from 'vite-plugin-pwa';
 import svgr from 'vite-plugin-svgr';
 
 import packageJson from './package.json';
 
-import "./generate-status-code-jsons"
+import "./data/generate";
 // @ts-ignore ts(6307) ignore
 
 const isProd = process.env.NODE_ENV === 'production';

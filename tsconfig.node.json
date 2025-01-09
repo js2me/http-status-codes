@@ -6,8 +6,10 @@
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "useDefineForClassFields": true,
     "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "strictNullChecks": true,
     "resolveJsonModule": true,
     "typeRoots": ["./types/envs.d.ts", "node_modules/@types"]
   },
-  "include": ["vite.config.ts", "generate-status-code-jsons.ts", "types", "build", "package.json", "build/scripts"]
+  "include": ["vite.config.ts", "generate-status-code-jsons.ts", "data", "types", "build", "package.json", "build/scripts"]
 }

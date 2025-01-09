@@ -1,0 +1,8 @@
+{
+  "title": "URI Too Long",
+  "description": "Код ответа HTTP 414 URI Too Long указывает, что запрашиваемый URI длиннее, чем сервер готов интерпретировать.",
+  "links": [
+    "https://developer.mozilla.org/ru/docs/Web/HTTP/Status/414"
+  ],
+  "code": 414
+}

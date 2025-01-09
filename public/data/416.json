@@ -1,0 +1,1 @@
+{"title":"Range Not Satisfiable","description":"Код ответа HTTP 416 Range Not Satisfiable указывает, что сервер не может обслуживать запрошенные диапазоны данных.","links":["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/416"],"code":416,"images":[]}
