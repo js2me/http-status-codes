@@ -1,0 +1,1 @@
+{"title":"Processing","description":"Указывает клиенту, что полный запрос получен и сервер работает над ним. Этот код статуса отправляется только в том случае, если сервер ожидает, что запрос займет значительное время.","links":["https://datatracker.ietf.org/doc/html/rfc2518#section-10.1","https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/102"],"code":102,"images":[]}

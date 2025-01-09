@@ -1,1 +1,0 @@
-{"title":"Precondition Required","description":"Код ответа HTTP 428 Precondition Required указывает, что сервер требует выполнения условий перед обработкой запроса.","links":["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/428"],"images":[],"code":428}

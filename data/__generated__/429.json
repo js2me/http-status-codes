@@ -1,1 +1,0 @@
-{"title":"Too Many Requests","description":"Код ответа HTTP 429 Too Many Requests указывает, что клиент отправил слишком много запросов за короткий промежуток времени.","links":["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/429"],"images":[],"code":429}

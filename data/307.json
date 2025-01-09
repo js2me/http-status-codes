@@ -1,0 +1,1 @@
+{"title":"Temporary Redirect","description":"**Код ответа HTTP 307 Temporary Redirect** указывает, что запрашиваемый ресурс временно доступен по другому URI и клиент должен использовать тот же метод при повторном запросе.","links":["https://developer.mozilla.org/ru/docs/Web/HTTP/Status/307"],"code":307,"images":[]}
