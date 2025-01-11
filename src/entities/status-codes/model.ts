@@ -54,19 +54,19 @@ export class StatusCodesModel {
     const { clientError, informational, redirection, successful } =
       this.classificationRanges;
 
-    if (informational[0] >= code && code <= informational[1]) {
+    if (informational[0] <= code && code <= informational[1]) {
       return 'informational';
     }
 
-    if (successful[0] >= code && code <= successful[1]) {
+    if (successful[0] <= code && code <= successful[1]) {
       return 'successful';
     }
 
-    if (redirection[0] >= code && code <= redirection[1]) {
+    if (redirection[0] <= code && code <= redirection[1]) {
       return 'redirection';
     }
 
-    if (clientError[0] >= code && code <= clientError[1]) {
+    if (clientError[0] <= code && code <= clientError[1]) {
       return 'clientError';
     }
 
