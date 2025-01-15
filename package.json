@@ -50,7 +50,7 @@
     "mobx-react-lite": "^4.1.0",
     "mobx-shared-entities": "^4.0.9",
     "mobx-tanstack-query": "^3.3.4",
-    "mobx-vm-entities": "^5.1.1",
+    "mobx-vm-entities": "^5.1.4",
     "mobx-wouter": "^1.2.31",
     "next-themes": "^0.2.1",
     "patronum": "^2.3.0",
