@@ -16,6 +16,7 @@ export class HomePageVM extends PageViewModelImpl {
   }
 
   get statusCodes() {
+    console.info('ff', this.vmConfig);
     const statusCodes = this.statusCodesData.shortList || [];
     const searchText = this.search.toLowerCase();
 

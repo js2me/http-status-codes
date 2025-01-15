@@ -1,5 +1,5 @@
 /* eslint-disable import/order */
-import '@/app/styles/globals.css';
+import './bootstrap';
 
 import { createRoot } from 'react-dom/client';
 import { rootElement } from '@/shared/config/dom';

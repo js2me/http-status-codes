@@ -15,17 +15,13 @@ export const Routing = ({
 }) => (
   <Router base={baseUrl}>
     <Router hook={useHashRouting ? useHashLocation : undefined}>
-      <Switch>
-        <Route path={'/'}>
-          <Layout>
-            <HomePage />
-          </Layout>
-        </Route>
-        <Route path={'/:code'} component={CodePage} />
-        <Route path={'*'}>
-          <NotFoundPage />
-        </Route>
-      </Switch>
+      <Layout>
+        <Switch>
+          <Route path={'/'} component={HomePage} />
+          <Route path={'/:code'} component={CodePage} />
+          <Route path={'*'} component={NotFoundPage} />
+        </Switch>
+      </Layout>
     </Router>
   </Router>
 );

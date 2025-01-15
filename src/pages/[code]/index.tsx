@@ -1,6 +1,6 @@
 import { withLazyPageViewModel } from 'mobx-wouter';
 
-import { Layout } from '../_layout';
+import { ContentLoader } from '@/shared/ui/content-loader';
 
 export const CodePage = withLazyPageViewModel(
   async () => {
@@ -15,6 +15,6 @@ export const CodePage = withLazyPageViewModel(
     };
   },
   {
-    fallback: () => <Layout loading />,
+    fallback: () => <ContentLoader />,
   },
 );
