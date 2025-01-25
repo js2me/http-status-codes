@@ -126,7 +126,7 @@ export class StatusCodesModel {
 
   async loadFullData(code: number) {
     this.fullDataQuery.update({ queryKey: ['status-codes', code] });
-    await when(() => !this.isFullDataLoading);
+    await when(() => !this.isFullDataLoading, { signal: this.disposer.signal });
     return this.fullData;
   }
 
@@ -134,7 +134,9 @@ export class StatusCodesModel {
     runInAction(() => {
       this.shortListDataQuery.isResultRequsted = true;
     });
-    await when(() => !this.isShortListLoading);
+    await when(() => !this.isShortListLoading, {
+      signal: this.disposer.signal,
+    });
     return this.shortList;
   }
 }

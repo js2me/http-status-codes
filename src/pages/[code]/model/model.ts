@@ -9,13 +9,6 @@ import { findTag, tag } from '@/shared/lib/di/tag';
 export class CodePageVM extends PageViewModelImpl<{ code: string }> {
   private statusCodes = container.inject(findTag(StatusCodesModel));
 
-  get isLoading() {
-    return (
-      this.statusCodes.isFullDataLoading ||
-      this.statusCodes.fullData?.code !== +this.pathParams.code
-    );
-  }
-
   get data() {
     return this.statusCodes.fullData;
   }
@@ -24,10 +17,10 @@ export class CodePageVM extends PageViewModelImpl<{ code: string }> {
     return this.viewModels.get(Layout);
   }
 
-  mount(): void {
-    super.mount();
+  async mount() {
+    await this.statusCodes.loadFullData(+this.pathParams.code);
 
-    this.statusCodes.loadFullData(+this.pathParams.code);
+    super.mount();
 
     reaction(
       () => this.layout,

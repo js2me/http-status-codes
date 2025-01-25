@@ -1,16 +1,10 @@
 import { observer } from 'mobx-react-lite';
 import { ViewModelProps } from 'mobx-vm-entities';
 
-import { ContentLoader } from '@/shared/ui/content-loader';
-
 import { CodePageVM } from '../model';
 
 export const CodePageView = observer(
   ({ model }: ViewModelProps<CodePageVM>) => {
-    if (model.isLoading) {
-      return <ContentLoader />;
-    }
-
     return (
       <div className={'flex flex-col gap-3'}>
         <h1
