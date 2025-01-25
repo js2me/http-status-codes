@@ -2,7 +2,7 @@ import { Link } from 'wouter';
 import { cx } from 'yummies/css';
 
 import { StatusCodeShortData } from '@/entities/status-codes/model';
-import { useRootStore } from '@/shared/lib/mobx/root-store';
+import { container, tags } from '@/shared/lib/di';
 
 export const StatusCodeCard = ({
   data,
@@ -11,7 +11,7 @@ export const StatusCodeCard = ({
   data: StatusCodeShortData;
   className?: string;
 }) => {
-  const { router } = useRootStore();
+  const router = container.get(tags.router);
 
   return (
     <Link

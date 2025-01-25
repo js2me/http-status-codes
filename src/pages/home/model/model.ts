@@ -2,10 +2,12 @@ import { action, observable } from 'mobx';
 import { PageViewModelImpl } from 'mobx-wouter';
 
 import { StatusCodesModel } from '@/entities/status-codes/model';
-import { CodePage } from '@/pages/[code]';
+import { container, findTag, tag, tags } from '@/shared/lib/di';
 
 export class HomePageVM extends PageViewModelImpl {
-  private statusCodesData = new StatusCodesModel();
+  private statusCodesData = container.inject(findTag(StatusCodesModel));
+
+  router = container.inject(tags.router);
 
   @observable
   accessor search: string = '';
@@ -16,7 +18,6 @@ export class HomePageVM extends PageViewModelImpl {
   }
 
   get statusCodes() {
-    console.info('ff', this.vmConfig);
     const statusCodes = this.statusCodesData.shortList || [];
     const searchText = this.search.toLowerCase();
 
@@ -40,9 +41,6 @@ export class HomePageVM extends PageViewModelImpl {
 
     return Object.entries(groups) as RecordEntries<typeof groups>;
   }
-
-  mount(): void {
-    super.mount();
-    CodePage.preload();
-  }
 }
+
+tag({ token: HomePageVM, scope: 'container' });

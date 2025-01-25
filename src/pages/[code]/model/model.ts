@@ -3,9 +3,11 @@ import { PageViewModelImpl } from 'mobx-wouter';
 
 import { StatusCodesModel } from '@/entities/status-codes/model';
 import { Layout } from '@/pages/_layout';
+import { container } from '@/shared/lib/di';
+import { findTag, tag } from '@/shared/lib/di/tag';
 
 export class CodePageVM extends PageViewModelImpl<{ code: string }> {
-  private statusCodes = new StatusCodesModel();
+  private statusCodes = container.inject(findTag(StatusCodesModel));
 
   get isLoading() {
     return (
@@ -43,9 +45,7 @@ export class CodePageVM extends PageViewModelImpl<{ code: string }> {
     );
   }
 
-  unmount(): void {
-    super.unmount();
-
+  didUnmount(): void {
     if (this.layout) {
       runInAction(() => {
         this.layout!.headerAppendText = '';
@@ -53,3 +53,5 @@ export class CodePageVM extends PageViewModelImpl<{ code: string }> {
     }
   }
 }
+
+tag({ token: CodePageVM, scope: 'container' });

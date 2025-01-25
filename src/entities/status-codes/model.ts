@@ -1,7 +1,7 @@
 import { runInAction, when } from 'mobx';
 import { createQuery } from 'mobx-tanstack-query/preset';
 
-import { rootStore } from '@/store';
+import { container, tag, tags } from '@/shared/lib/di';
 
 export interface StatusCodeShortData {
   code: number;
@@ -28,12 +28,17 @@ export interface StatusCodeFullData {
 }
 
 export class StatusCodesModel {
+  id = crypto.randomUUID();
+
+  private disposer = container.inject(tags.disposer);
+  private router = container.inject(tags.router);
+
   private shortListDataQuery = createQuery(
     async () => {
       const response = await fetch(
-        rootStore.router.createUrl({
+        this.router.createUrl({
           baseUrl: buildEnvs.DEV
-            ? rootStore.router.baseUrl!
+            ? this.router.baseUrl!
             : 'https://raw.githubusercontent.com/js2me/http-status-codes/refs/heads/master/public',
           hash: '',
           pathname: `/data/short-list.json`,
@@ -43,6 +48,7 @@ export class StatusCodesModel {
       return data;
     },
     {
+      abortSignal: this.disposer.signal,
       enableOnDemand: true,
       queryKey: () => ['status-codes'] as const,
     },
@@ -76,9 +82,9 @@ export class StatusCodesModel {
   private fullDataQuery = createQuery(
     async ({ queryKey: [, code] }) => {
       const response = await fetch(
-        rootStore.router.createUrl({
+        this.router.createUrl({
           baseUrl: buildEnvs.DEV
-            ? rootStore.router.baseUrl!
+            ? this.router.baseUrl!
             : 'https://raw.githubusercontent.com/js2me/http-status-codes/refs/heads/master/public',
           hash: '',
           pathname: `/data/${code}.json`,
@@ -91,6 +97,7 @@ export class StatusCodesModel {
       };
     },
     {
+      abortSignal: this.disposer.signal,
       enableOnDemand: true,
       queryKey: () =>
         [
@@ -131,3 +138,5 @@ export class StatusCodesModel {
     return this.shortList;
   }
 }
+
+tag({ token: StatusCodesModel, scope: 'transient' });
