@@ -1,9 +1,10 @@
+import { LinkedAbortController } from 'linked-abort-controller';
+import { TwoColorThemeStore } from 'mobx-shared-entities/theme';
 import { ViewModelStoreImpl } from 'mobx-vm-entities';
-import { MobxRouter } from 'mobx-wouter';
+import { IMobxRouter, MobxRouter } from 'mobx-wouter';
 
 import { ToastStore } from '@/shared/_entities/toast';
 
-import { Disposer } from '../common/disposer';
 import { ThemeStoreImpl } from '../mobx/theme';
 
 import { tag } from './tag';
@@ -13,23 +14,19 @@ export * from './container.types.js';
 export * from './tag.js';
 export * from './tag.types.js';
 
+tag({
+  token: LinkedAbortController,
+  scope: 'container',
+  destroy: (value) => {
+    value.abort();
+  },
+});
+
 export const tags = {
-  disposer: tag({
-    scope: 'container',
-    value: () => {
-      const value = new Disposer();
-      console.info('create new disposer');
-      return value;
-    },
-    destroy: (value) => {
-      console.info('destroy disposer');
-      value.dispose();
-    },
-  }),
   /**
    * Тема приложения
    */
-  theme: tag({
+  theme: tag<TwoColorThemeStore>({
     scope: 'singleton',
     value: () => new ThemeStoreImpl(),
   }),
@@ -40,14 +37,14 @@ export const tags = {
   /**
    * Модель для работы со вьюшками
    */
-  viewModels: tag({
+  viewModels: tag<ViewModelStoreImpl>({
     scope: 'singleton',
     value: () => new ViewModelStoreImpl(),
   }),
   /**
    * Роутер приложения
    */
-  router: tag({
+  router: tag<IMobxRouter>({
     scope: 'singleton',
     value: () =>
       new MobxRouter({

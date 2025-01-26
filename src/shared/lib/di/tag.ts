@@ -2,6 +2,8 @@ import { tagMark } from './constants.js';
 import { TagConfig, TagScope, TagStrategy } from './tag.types.js';
 import { Destroyable } from './types.js';
 
+declare const process: { env: { NODE_ENV?: string } };
+
 export class Tag<TTarget, TArgs extends any[] = any[]>
   implements Destroyable, Disposable
 {
@@ -106,11 +108,12 @@ export class Tag<TTarget, TArgs extends any[] = any[]>
     }
   }
 
-  static getFrom<TClass extends Class<any>>(
+  static search<TClass extends Class<any>>(
     Class: TClass,
-  ): Tag<TClass extends Class<infer Value> ? Value : never>;
+  ): Tag<TClass extends Class<infer Value> ? Value : never> | null;
+  static search<TTarget = any>(tag: Tag<TTarget>): Tag<TTarget> | null;
 
-  static getFrom<TTarget = any>(value: any): Tag<TTarget> {
+  static search(value: any) {
     if (value instanceof Tag) {
       return value;
     }
@@ -123,7 +126,11 @@ export class Tag<TTarget, TArgs extends any[] = any[]>
       return value[tagMark];
     }
 
-    throw new Error('tag not found');
+    if (process.env.NODE_ENV !== 'production') {
+      console.error('tag not found for', value);
+    }
+
+    return null;
   }
 
   static create<TTarget, TArgs extends any[] = any[]>(
@@ -134,5 +141,3 @@ export class Tag<TTarget, TArgs extends any[] = any[]>
 }
 
 export const tag = Tag.create;
-
-export const findTag = Tag.getFrom;

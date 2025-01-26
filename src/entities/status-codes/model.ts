@@ -1,3 +1,4 @@
+import { LinkedAbortController } from 'linked-abort-controller';
 import { runInAction, when } from 'mobx';
 import { createQuery } from 'mobx-tanstack-query/preset';
 
@@ -27,10 +28,14 @@ export interface StatusCodeFullData {
   images: string[];
 }
 
-export class StatusCodesModel {
+export interface IStatusCodesModel {
+  id: string;
+}
+
+export class StatusCodesModel implements IStatusCodesModel {
   id = crypto.randomUUID();
 
-  private disposer = container.inject(tags.disposer);
+  private abortSignal = container.inject(LinkedAbortController).signal;
   private router = container.inject(tags.router);
 
   private shortListDataQuery = createQuery(
@@ -48,7 +53,7 @@ export class StatusCodesModel {
       return data;
     },
     {
-      abortSignal: this.disposer.signal,
+      abortSignal: this.abortSignal,
       enableOnDemand: true,
       queryKey: () => ['status-codes'] as const,
     },
@@ -97,7 +102,7 @@ export class StatusCodesModel {
       };
     },
     {
-      abortSignal: this.disposer.signal,
+      abortSignal: this.abortSignal,
       enableOnDemand: true,
       queryKey: () =>
         [
@@ -126,7 +131,9 @@ export class StatusCodesModel {
 
   async loadFullData(code: number) {
     this.fullDataQuery.update({ queryKey: ['status-codes', code] });
-    await when(() => !this.isFullDataLoading, { signal: this.disposer.signal });
+    await when(() => !this.isFullDataLoading, {
+      signal: this.abortSignal,
+    });
     return this.fullData;
   }
 
@@ -135,7 +142,7 @@ export class StatusCodesModel {
       this.shortListDataQuery.isResultRequsted = true;
     });
     await when(() => !this.isShortListLoading, {
-      signal: this.disposer.signal,
+      signal: this.abortSignal,
     });
     return this.shortList;
   }

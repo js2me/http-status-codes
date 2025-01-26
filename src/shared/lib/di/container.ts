@@ -14,17 +14,30 @@ export class Container implements Destroyable, Disposable {
   parent?: Container;
   children = new Set<Container>();
 
-  static readonly transitPath: Container[] = [];
+  private static readonly transitPath: Container[] = [];
 
   constructor(parent?: Container) {
     this.parent = parent;
   }
 
-  // eslint-disable-next-line sonarjs/cognitive-complexity
+  inject<TTarget, TArgs extends any[] = any[]>(
+    classConstructor: Class<TTarget, TArgs>,
+    ...args: TArgs
+  ): TTarget;
+
   inject<TTarget, TArgs extends any[] = any[]>(
     tag: Tag<TTarget, TArgs>,
     ...args: TArgs
-  ): TTarget {
+  ): TTarget;
+
+  // eslint-disable-next-line sonarjs/cognitive-complexity
+  inject(firstArg: any, ...args: any[]): any {
+    const tag = Tag.search(firstArg);
+
+    if (!tag) {
+      throw new Error('tag not found');
+    }
+
     let container: Container = this;
 
     const lastContainer = Container.transitPath.at(-1);
@@ -50,25 +63,27 @@ export class Container implements Destroyable, Disposable {
     } else if (container.injections.has(tag)) {
       injection = container.injections.get(tag)!;
     } else {
+      let inheritInjection: any;
+
       if (tag.scope === 'container') {
         for (let i = Container.transitPath.length - 1; i >= 0; i--) {
           const container = Container.transitPath[i];
           if (container.injections.has(tag)) {
-            injection = container.injections.get(tag)!;
+            inheritInjection = container.injections.get(tag)!;
             break;
           }
 
           for (const child of container.children) {
             if (child.injections.has(tag)) {
-              injection = child.injections.get(tag)!;
+              inheritInjection = child.injections.get(tag)!;
               break;
             }
           }
         }
       }
 
-      if (injection) {
-        container.inheritInjections.set(tag, injection);
+      if (inheritInjection) {
+        container.inheritInjections.set(tag, inheritInjection);
       } else {
         injection = tag.createValue(args);
         container.injections.set(tag, injection);
@@ -106,8 +121,17 @@ export class Container implements Destroyable, Disposable {
     return child;
   }
 
-  destroy() {
-    const containersToDestroy: Container[] = [this];
+  destroy(value?: any) {
+    const containersToDestroy: Container[] = [];
+
+    if (value) {
+      const valueBasedContainer = Container.search(value);
+      if (valueBasedContainer) {
+        containersToDestroy.push(valueBasedContainer);
+      }
+    } else {
+      containersToDestroy.push(this);
+    }
 
     while (containersToDestroy.length > 0) {
       const container = containersToDestroy.shift()!;
@@ -123,7 +147,7 @@ export class Container implements Destroyable, Disposable {
     }
   }
 
-  static find(value: any): Maybe<Container> {
+  static search(value: any): Maybe<Container> {
     if (value[containerMark]) {
       return value[containerMark];
     }
@@ -132,7 +156,7 @@ export class Container implements Destroyable, Disposable {
   }
 
   static destroy(value: any) {
-    const container = Container.find(value);
+    const container = Container.search(value);
     if (container) {
       container.destroy();
     }
@@ -144,5 +168,3 @@ export class Container implements Destroyable, Disposable {
 }
 
 export const container = new Container();
-
-export const findContainer = Container.find;

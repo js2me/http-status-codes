@@ -2,7 +2,7 @@
 import '@/app/styles/globals.css';
 
 import { viewModelsConfig } from 'mobx-vm-entities';
-import { Container, container, findTag } from './shared/lib/di';
+import { container } from './shared/lib/di';
 
 viewModelsConfig.startViewTransitions = {
   mount: true,
@@ -10,11 +10,5 @@ viewModelsConfig.startViewTransitions = {
   unmount: true,
 };
 
-viewModelsConfig.factory = (params) => {
-  console.info('create VM', params.VM.name);
-  return container.inject(findTag(params.VM), params);
-};
-viewModelsConfig.onUnmount = (vm) => {
-  console.info('onUnmount', vm.constructor.name);
-  Container.destroy(vm);
-};
+viewModelsConfig.factory = (params) => container.inject(params.VM, params);
+viewModelsConfig.onUnmount = (vm) => container.destroy(vm);

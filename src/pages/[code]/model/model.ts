@@ -4,10 +4,10 @@ import { PageViewModelImpl } from 'mobx-wouter';
 import { StatusCodesModel } from '@/entities/status-codes/model';
 import { Layout } from '@/pages/_layout';
 import { container } from '@/shared/lib/di';
-import { findTag, tag } from '@/shared/lib/di/tag';
+import { tag } from '@/shared/lib/di/tag';
 
 export class CodePageVM extends PageViewModelImpl<{ code: string }> {
-  private statusCodes = container.inject(findTag(StatusCodesModel));
+  private statusCodes = container.inject(StatusCodesModel);
 
   get data() {
     return this.statusCodes.fullData;
