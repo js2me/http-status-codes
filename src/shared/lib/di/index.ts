@@ -7,6 +7,7 @@ import { ToastStore } from '@/shared/_entities/toast';
 
 import { ThemeStoreImpl } from '../mobx/theme';
 
+import { container } from './container.js';
 import { tag } from './tag';
 
 export * from './container.js';
@@ -54,3 +55,5 @@ export const tags = {
       }),
   }),
 } as const;
+
+console.info(tags, LinkedAbortController, container);

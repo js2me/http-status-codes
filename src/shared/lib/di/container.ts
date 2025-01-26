@@ -87,6 +87,7 @@ export class Container implements Destroyable, Disposable {
       } else {
         injection = tag.createValue(args);
         container.injections.set(tag, injection);
+        tag.containersInUse.add(container);
       }
     }
 
@@ -142,6 +143,7 @@ export class Container implements Destroyable, Disposable {
 
       container.injections.forEach((value, tag) => {
         tag.destroyValue(value);
+        tag.containersInUse.delete(container);
       });
       container.injections.clear();
     }

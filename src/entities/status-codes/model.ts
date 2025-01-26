@@ -117,6 +117,10 @@ export class StatusCodesModel implements IStatusCodesModel {
     return this.fullDataQuery.result.data;
   }
 
+  get isError() {
+    return this.fullDataQuery.result.isError;
+  }
+
   get isFullDataLoading() {
     return this.fullDataQuery.result.isLoading;
   }

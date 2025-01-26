@@ -1,4 +1,4 @@
-import { reaction, runInAction } from 'mobx';
+import { reaction, runInAction, when } from 'mobx';
 import { PageViewModelImpl } from 'mobx-wouter';
 
 import { StatusCodesModel } from '@/entities/status-codes/model';
@@ -13,12 +13,20 @@ export class CodePageVM extends PageViewModelImpl<{ code: string }> {
     return this.statusCodes.fullData;
   }
 
+  get isError() {
+    return this.statusCodes.isError;
+  }
+
   private get layout() {
     return this.viewModels.get(Layout);
   }
 
   async mount() {
     await this.statusCodes.loadFullData(+this.pathParams.code);
+
+    await when(() => !!this.data || this.isError, {
+      signal: this.unmountSignal,
+    });
 
     super.mount();
 
