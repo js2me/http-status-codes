@@ -1,19 +1,14 @@
 import { LinkedAbortController } from 'linked-abort-controller';
+import { container, tag } from 'mobidic';
 import { TwoColorThemeStore } from 'mobx-shared-entities/theme';
-import { ViewModelStoreImpl } from 'mobx-vm-entities';
+import { ViewModelStore, ViewModelStoreImpl } from 'mobx-vm-entities';
 import { IMobxRouter, MobxRouter } from 'mobx-wouter';
 
 import { ToastStore } from '@/shared/_entities/toast';
 
 import { ThemeStoreImpl } from '../mobx/theme';
 
-import { container } from './container.js';
-import { tag } from './tag';
-
-export * from './container.js';
-export * from './container.types.js';
-export * from './tag.js';
-export * from './tag.types.js';
+export * from 'mobidic';
 
 tag({
   token: LinkedAbortController,
@@ -38,7 +33,7 @@ export const tags = {
   /**
    * Модель для работы со вьюшками
    */
-  viewModels: tag<ViewModelStoreImpl>({
+  viewModels: tag<ViewModelStore>({
     scope: 'singleton',
     value: () => new ViewModelStoreImpl(),
   }),
@@ -56,4 +51,4 @@ export const tags = {
   }),
 } as const;
 
-console.info(tags, LinkedAbortController, container);
+console.info(tags, container);

@@ -3,8 +3,7 @@ import { PageViewModelImpl } from 'mobx-wouter';
 
 import { StatusCodesModel } from '@/entities/status-codes/model';
 import { Layout } from '@/pages/_layout';
-import { container } from '@/shared/lib/di';
-import { tag } from '@/shared/lib/di/tag';
+import { container, tag } from '@/shared/lib/di';
 
 export class CodePageVM extends PageViewModelImpl<{ code: string }> {
   private statusCodes = container.inject(StatusCodesModel);
