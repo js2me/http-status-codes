@@ -96,8 +96,8 @@ importers:
         specifier: ^0.321.0
         version: 0.321.0(react@18.3.1)
       mobidic:
-        specifier: ^0.0.29
-        version: 0.0.29
+        specifier: ^0.0.32
+        version: 0.0.32
       mobx:
         specifier: ^6.13.5
         version: 6.13.5
@@ -4508,8 +4508,8 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
-  mobidic@0.0.29:
-    resolution: {integrity: sha512-mVMcevvtt/nc/cCoRXDLNlXevjoUDf8d94zdn8NHL1TsgFf6W3XCc+0h1+PuUpf72eiA2vV1IBaCVqzLrxSrIw==}
+  mobidic@0.0.32:
+    resolution: {integrity: sha512-nM8lTn7/FZVhRIEff8FV/lvGnzjBa4Rdudl8m53HLgpW77e+6M0UHR5KhcruvDHtxtigotXpaAhweoKxvdxmTg==}
 
   mobx-location-history@2.0.10:
     resolution: {integrity: sha512-P/AVKlJY6UB0DVVY4i2xXkjkgWTzt9+MrSIp9JxT+3TAKK6H6xxYk8l9Ye2f3hY9TBt/9Ckl+2/HXN1vDGgyeg==}
@@ -11653,7 +11653,7 @@ snapshots:
 
   mkdirp@1.0.4: {}
 
-  mobidic@0.0.29:
+  mobidic@0.0.32:
     dependencies:
       linked-abort-controller: 1.0.4
       yummies: 3.0.12

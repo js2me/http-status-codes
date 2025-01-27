@@ -1,4 +1,3 @@
-import { LinkedAbortController } from 'linked-abort-controller';
 import { runInAction, when } from 'mobx';
 import { createQuery } from 'mobx-tanstack-query/preset';
 
@@ -35,7 +34,7 @@ export interface IStatusCodesModel {
 export class StatusCodesModel implements IStatusCodesModel {
   id = crypto.randomUUID();
 
-  private abortSignal = container.inject(LinkedAbortController).signal;
+  private abortSignal = container.inject(AbortController).signal;
   private router = container.inject(tags.router);
 
   private shortListDataQuery = createQuery(

@@ -1,4 +1,3 @@
-import { LinkedAbortController } from 'linked-abort-controller';
 import { container, tag } from 'mobidic';
 import { TwoColorThemeStore } from 'mobx-shared-entities/theme';
 import { ViewModelStore, ViewModelStoreImpl } from 'mobx-vm-entities';
@@ -11,7 +10,7 @@ import { ThemeStoreImpl } from '../mobx/theme';
 export * from 'mobidic';
 
 tag({
-  token: LinkedAbortController,
+  token: AbortController,
   scope: 'container',
   destroy: (value) => {
     value.abort();
