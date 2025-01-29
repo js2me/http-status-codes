@@ -1,7 +1,8 @@
 import { runInAction, when } from 'mobx';
 import { createQuery } from 'mobx-tanstack-query/preset';
 
-import { container, tag, tags } from '@/shared/lib/di';
+import { container, tags } from '@/shared/lib/di';
+import { injectable } from "mobidic/decorators";
 
 export interface StatusCodeShortData {
   code: number;
@@ -31,6 +32,8 @@ export interface IStatusCodesModel {
   id: string;
 }
 
+
+@injectable({ scope: 'resolution'})
 export class StatusCodesModel implements IStatusCodesModel {
   id = crypto.randomUUID();
 
@@ -40,7 +43,7 @@ export class StatusCodesModel implements IStatusCodesModel {
   private shortListDataQuery = createQuery(
     async () => {
       const response = await fetch(
-        this.router.createUrl({
+        this.router.createUrl({ 
           baseUrl: buildEnvs.DEV
             ? this.router.baseUrl!
             : 'https://raw.githubusercontent.com/js2me/http-status-codes/refs/heads/master/public',
@@ -150,5 +153,3 @@ export class StatusCodesModel implements IStatusCodesModel {
     return this.shortList;
   }
 }
-
-tag({ token: StatusCodesModel, scope: 'transient' });

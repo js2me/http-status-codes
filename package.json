@@ -46,7 +46,7 @@
     "linked-abort-controller": "^1.0.4",
     "lodash-es": "^4.17.21",
     "lucide-react": "^0.321.0",
-    "mobidic": "^0.0.32",
+    "mobidic": "^0.0.43",
     "mobx": "^6.13.5",
     "mobx-react-lite": "^4.1.0",
     "mobx-shared-entities": "^4.0.9",

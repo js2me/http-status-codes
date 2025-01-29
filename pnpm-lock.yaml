@@ -96,8 +96,8 @@ importers:
         specifier: ^0.321.0
         version: 0.321.0(react@18.3.1)
       mobidic:
-        specifier: ^0.0.32
-        version: 0.0.32
+        specifier: ^0.0.43
+        version: 0.0.43
       mobx:
         specifier: ^6.13.5
         version: 6.13.5
@@ -4508,8 +4508,8 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
-  mobidic@0.0.32:
-    resolution: {integrity: sha512-nM8lTn7/FZVhRIEff8FV/lvGnzjBa4Rdudl8m53HLgpW77e+6M0UHR5KhcruvDHtxtigotXpaAhweoKxvdxmTg==}
+  mobidic@0.0.43:
+    resolution: {integrity: sha512-g86I9srSeqA+g8Hl75ND2AzVMGy9drZKMfoFUFmo5N6ZtVFMBahKSYkN9tJCgHgZtCjpHKNvrCjjj5YAI6G5Qg==}
 
   mobx-location-history@2.0.10:
     resolution: {integrity: sha512-P/AVKlJY6UB0DVVY4i2xXkjkgWTzt9+MrSIp9JxT+3TAKK6H6xxYk8l9Ye2f3hY9TBt/9Ckl+2/HXN1vDGgyeg==}
@@ -6386,6 +6386,9 @@ packages:
 
   yummies@3.0.12:
     resolution: {integrity: sha512-IpqjNTPYredHevnyQE2p20lzz4hecp7tNU25Dz+gG0fVwKyQw/DnhBCISBcZRifUVWwSKBvLeFkxR0ZwYOI8xQ==}
+
+  yummies@3.0.15:
+    resolution: {integrity: sha512-AfkrWuy8Jtu9MNIlZJHJzjNKBRBd+mN9yqGHsoyW/8SmraIztkSKP0QVPNPuQRgKYFeUgORumjSY6XJH3YSEtQ==}
 
 snapshots:
 
@@ -11653,10 +11656,10 @@ snapshots:
 
   mkdirp@1.0.4: {}
 
-  mobidic@0.0.32:
+  mobidic@0.0.43:
     dependencies:
       linked-abort-controller: 1.0.4
-      yummies: 3.0.12
+      yummies: 3.0.15
 
   mobx-location-history@2.0.10(mobx@6.13.5):
     dependencies:
@@ -13746,6 +13749,17 @@ snapshots:
   yocto-queue@0.1.0: {}
 
   yummies@3.0.12:
+    dependencies:
+      '@types/insane': 1.0.0
+      '@types/lodash-es': 4.17.12
+      clsx: 2.1.1
+      dayjs: 1.11.13
+      insane: 2.6.2
+      lodash-es: 4.17.21
+      nanoid: 5.0.9
+      tailwind-merge: 2.6.0
+
+  yummies@3.0.15:
     dependencies:
       '@types/insane': 1.0.0
       '@types/lodash-es': 4.17.12

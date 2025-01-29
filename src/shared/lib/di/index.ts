@@ -1,4 +1,4 @@
-import { container, tag } from 'mobidic';
+import { container, tag, Tag } from 'mobidic';
 import { TwoColorThemeStore } from 'mobx-shared-entities/theme';
 import { ViewModelStore, ViewModelStoreImpl } from 'mobx-vm-entities';
 import { IMobxRouter, MobxRouter } from 'mobx-wouter';
@@ -50,4 +50,4 @@ export const tags = {
   }),
 } as const;
 
-console.info(tags, container);
+console.info(tags, container, Tag.tagsSet);
