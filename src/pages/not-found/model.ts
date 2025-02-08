@@ -1,8 +1,8 @@
-import { PageViewModelImpl } from 'mobx-wouter';
+import { PageViewModelBase } from 'mobx-wouter';
 
 import { container, tag, tags } from '@/shared/lib/di';
 
-export class NotFoundPageVM extends PageViewModelImpl {
+export class NotFoundPageVM extends PageViewModelBase {
   private router = container.inject(tags.router);
 
   mount(): void {

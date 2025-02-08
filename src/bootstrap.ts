@@ -1,7 +1,7 @@
 /* eslint-disable import/order */
 import '@/app/styles/globals.css';
 
-import { viewModelsConfig } from 'mobx-vm-entities';
+import { viewModelsConfig } from 'mobx-view-model';
 import { container } from './shared/lib/di';
 
 viewModelsConfig.startViewTransitions = {

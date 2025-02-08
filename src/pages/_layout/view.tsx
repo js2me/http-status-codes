@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import { ViewModelProps } from 'mobx-vm-entities';
+import { ViewModelProps } from 'mobx-view-model';
 import { ReactNode } from 'react';
 import { Link } from 'wouter';
 import { cx } from 'yummies/css';

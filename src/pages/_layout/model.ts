@@ -1,9 +1,9 @@
 import { observable } from 'mobx';
-import { ViewModelImpl } from 'mobx-vm-entities';
+import { ViewModelBase } from 'mobx-view-model';
 
 import { container, tag, tags } from '@/shared/lib/di';
 
-export class LayoutVM extends ViewModelImpl {
+export class LayoutVM extends ViewModelBase {
   private themeStore = container.inject(tags.theme);
 
   get theme() {

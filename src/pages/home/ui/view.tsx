@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import { ViewModelProps } from 'mobx-vm-entities';
+import { ViewModelProps } from 'mobx-view-model';
 
 import { HomePageVM } from '../model';
 

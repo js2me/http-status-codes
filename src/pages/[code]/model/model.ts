@@ -1,11 +1,11 @@
 import { reaction, runInAction, when } from 'mobx';
-import { PageViewModelImpl } from 'mobx-wouter';
+import { PageViewModelBase } from 'mobx-wouter';
 
 import { StatusCodesModel } from '@/entities/status-codes/model';
 import { Layout } from '@/pages/_layout';
 import { container, tag } from '@/shared/lib/di';
 
-export class CodePageVM extends PageViewModelImpl<{ code: string }> {
+export class CodePageVM extends PageViewModelBase<{ code: string }> {
   private statusCodes = container.inject(StatusCodesModel);
 
   get data() {

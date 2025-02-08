@@ -1,4 +1,4 @@
-import { withViewModel } from 'mobx-vm-entities';
+import { withViewModel } from 'mobx-view-model';
 
 import { LayoutVM } from './model';
 import { LayoutView } from './view';

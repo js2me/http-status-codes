@@ -1,6 +1,6 @@
 import { container, tag, Tag } from 'mobidic';
 import { TwoColorThemeStore } from 'mobx-shared-entities/theme';
-import { ViewModelStore, ViewModelStoreImpl } from 'mobx-vm-entities';
+import { ViewModelStore, ViewModelStoreBase } from 'mobx-view-model';
 import { IMobxRouter, MobxRouter } from 'mobx-wouter';
 
 import { ToastStore } from '@/shared/_entities/toast';
@@ -34,7 +34,7 @@ export const tags = {
    */
   viewModels: tag<ViewModelStore>({
     scope: 'singleton',
-    value: () => new ViewModelStoreImpl(),
+    value: () => new ViewModelStoreBase(),
   }),
   /**
    * Роутер приложения

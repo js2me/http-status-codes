@@ -1,10 +1,10 @@
 import { action, observable } from 'mobx';
-import { PageViewModelImpl } from 'mobx-wouter';
+import { PageViewModelBase } from 'mobx-wouter';
 
 import { StatusCodesModel } from '@/entities/status-codes/model';
 import { container, tag, tags } from '@/shared/lib/di';
 
-export class HomePageVM extends PageViewModelImpl {
+export class HomePageVM extends PageViewModelBase {
   private statusCodesData = container.inject(StatusCodesModel);
 
   router = container.inject(tags.router);

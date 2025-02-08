@@ -110,12 +110,12 @@ importers:
       mobx-tanstack-query:
         specifier: ^3.3.11
         version: 3.3.11(@tanstack/query-core@5.64.2)(disposer-util@1.0.12)(mobx@6.13.5)
-      mobx-vm-entities:
-        specifier: ^5.1.12
-        version: 5.1.12(mobx-react-lite@4.1.0(mobx@6.13.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(mobx@6.13.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      mobx-view-model:
+        specifier: ^5.2.5
+        version: 5.2.5(mobx-react-lite@4.1.0(mobx@6.13.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(mobx@6.13.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       mobx-wouter:
-        specifier: ^1.2.32
-        version: 1.2.32(mobx-react-lite@4.1.0(mobx@6.13.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(mobx-vm-entities@5.1.12(mobx-react-lite@4.1.0(mobx@6.13.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(mobx@6.13.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(mobx@6.13.5)(react@18.3.1)(wouter@3.3.5(react@18.3.1))
+        specifier: ^2.0.0
+        version: 2.0.0(mobx-react-lite@4.1.0(mobx@6.13.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(mobx-view-model@5.2.5(mobx-react-lite@4.1.0(mobx@6.13.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(mobx@6.13.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(mobx@6.13.5)(react@18.3.1)(wouter@3.3.5(react@18.3.1))
       prettier:
         specifier: ^3.4.2
         version: 3.4.2
@@ -4542,20 +4542,20 @@ packages:
       disposer-util: ^1.0.9
       mobx: '>=6.12.4'
 
-  mobx-vm-entities@5.1.12:
-    resolution: {integrity: sha512-ZVc5+LQ0BWqc/+/1A6l9V+waKVY6pYuTFm6SS47KRzDWtPrSIKXEqXeFl5XguZT7dv/+1MAJ0jtMZv2lylVn+A==}
+  mobx-view-model@5.2.5:
+    resolution: {integrity: sha512-509Cc4TPy5uzqILib06pDG/L0gqj9qYWHIFQfVpj6eGQ9Efe37wVbt7FoUNYqVZ88SfT2+4QyXuk8wqru+2juQ==}
     peerDependencies:
       mobx: ^6.12.4
       mobx-react-lite: ^4.0.7
       react: ^18.3.1
       react-dom: ^18.3.1
 
-  mobx-wouter@1.2.32:
-    resolution: {integrity: sha512-P7f3uh3EeGlp3MDVKU/OT2TGOiOsIA1iRjHKIKDsUoQQcCE/L49lZ4r6prZt9CIjZsxxYwTteIuk5oLhCZ4gDA==}
+  mobx-wouter@2.0.0:
+    resolution: {integrity: sha512-bBKMZAJXejCtY9F15h9UA+h4ao2kNnT6KvopODykVUdyPO16luHdmxXR7fZUDVcJxGTIWMoQrBAR8z7rtilSww==}
     peerDependencies:
       mobx: ^6.12.4
       mobx-react-lite: ^4.0.7
-      mobx-vm-entities: ^5.1.4
+      mobx-view-model: ^5.2.5
       react: ^18.3.1
       wouter: ^3.3.5
 
@@ -11687,7 +11687,7 @@ snapshots:
       linked-abort-controller: 1.0.4
       mobx: 6.13.5
 
-  mobx-vm-entities@5.1.12(mobx-react-lite@4.1.0(mobx@6.13.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(mobx@6.13.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  mobx-view-model@5.2.5(mobx-react-lite@4.1.0(mobx@6.13.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(mobx@6.13.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       lodash-es: 4.17.21
       mobx: 6.13.5
@@ -11695,14 +11695,14 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       react-simple-loadable: 2.0.4(react@18.3.1)
-      yummies: 3.0.12
+      yummies: 3.0.15
 
-  mobx-wouter@1.2.32(mobx-react-lite@4.1.0(mobx@6.13.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(mobx-vm-entities@5.1.12(mobx-react-lite@4.1.0(mobx@6.13.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(mobx@6.13.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(mobx@6.13.5)(react@18.3.1)(wouter@3.3.5(react@18.3.1)):
+  mobx-wouter@2.0.0(mobx-react-lite@4.1.0(mobx@6.13.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(mobx-view-model@5.2.5(mobx-react-lite@4.1.0(mobx@6.13.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(mobx@6.13.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(mobx@6.13.5)(react@18.3.1)(wouter@3.3.5(react@18.3.1)):
     dependencies:
       mobx: 6.13.5
       mobx-location-history: 2.0.10(mobx@6.13.5)
       mobx-react-lite: 4.1.0(mobx@6.13.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      mobx-vm-entities: 5.1.12(mobx-react-lite@4.1.0(mobx@6.13.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(mobx@6.13.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      mobx-view-model: 5.2.5(mobx-react-lite@4.1.0(mobx@6.13.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(mobx@6.13.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       wouter: 3.3.5(react@18.3.1)
 
