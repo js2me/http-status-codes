@@ -1,7 +1,7 @@
 import { container, tag, Tag } from 'mobidic';
 import { TwoColorThemeStore } from 'mobx-shared-entities/theme';
 import { ViewModelStore, ViewModelStoreBase } from 'mobx-view-model';
-import { IMobxRouter, MobxRouter } from 'mobx-wouter';
+import { IRouter, Router } from 'mobx-wouter';
 
 import { ToastStore } from '@/shared/_entities/toast';
 
@@ -39,10 +39,10 @@ export const tags = {
   /**
    * Роутер приложения
    */
-  router: tag<IMobxRouter>({
+  router: tag<IRouter>({
     scope: 'singleton',
     value: () =>
-      new MobxRouter({
+      new Router({
         type: 'hash',
         baseUrl: buildEnvs.BASE_URL || '/',
         useStartViewTransition: true,

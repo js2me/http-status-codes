@@ -22,3 +22,4 @@ tailwind.config.js
 src/shared/ui
 postcss.config.cjs
 generate-status-code-jsons.ts
+packalink.config.js
