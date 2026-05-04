@@ -1,4 +1,4 @@
-import { makeObservable, reaction, runInAction, when } from 'mobx';
+import { reaction, runInAction, when } from 'mobx';
 import { PageViewModelBase } from 'mobx-wouter';
 
 import { statusCodesModel } from '@/entities/status-codes/model';
@@ -17,10 +17,6 @@ export class CodePageVM extends PageViewModelBase<{ code: string }> {
 
   private get layout() {
     return this.viewModels.get(Layout);
-  }
-
-  willMount(): void {
-    makeObservable(this);
   }
 
   async mount() {
