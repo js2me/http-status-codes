@@ -1,8 +1,7 @@
-import { injectable } from 'mobidic/decorators';
-import { runInAction, when } from 'mobx';
+import { makeObservable, observable, runInAction, when } from 'mobx';
 import { createQuery } from 'mobx-tanstack-query/preset';
 
-import { container, tags } from '@/shared/lib/di';
+import { appRouter } from '@/shared/lib/app-router';
 
 export interface StatusCodeShortData {
   code: number;
@@ -28,27 +27,26 @@ export interface StatusCodeFullData {
   images: string[];
 }
 
-export interface IStatusCodesModel {
-  id: string;
-}
+export class StatusCodesModel {
+  private readonly abortController = new AbortController();
 
-@injectable({ scope: 'resolution' })
-export class StatusCodesModel implements IStatusCodesModel {
-  id = crypto.randomUUID();
-
-  private abortSignal = container.inject(AbortController).signal;
-  private router = container.inject(tags.router);
+  private get abortSignal() {
+    return this.abortController.signal;
+  }
 
   private shortListDataQuery = createQuery(
-    async () => {
+    async ({ signal }) => {
       const response = await fetch(
-        this.router.createUrl({
+        appRouter.createUrl({
           baseUrl: buildEnvs.DEV
-            ? this.router.baseUrl!
+            ? appRouter.baseUrl!
             : 'https://raw.githubusercontent.com/js2me/http-status-codes/refs/heads/master/public',
           hash: '',
           pathname: `/data/short-list.json`,
         }),
+        {
+          signal,
+        },
       );
       const data: StatusCodeShortData[] = await response.json();
       return data;
@@ -85,34 +83,10 @@ export class StatusCodesModel implements IStatusCodesModel {
     return 'serverError';
   }
 
-  private fullDataQuery = createQuery(
-    async ({ queryKey: [, code] }) => {
-      const response = await fetch(
-        this.router.createUrl({
-          baseUrl: buildEnvs.DEV
-            ? this.router.baseUrl!
-            : 'https://raw.githubusercontent.com/js2me/http-status-codes/refs/heads/master/public',
-          hash: '',
-          pathname: `/data/${code}.json`,
-        }),
-      );
-      const data: StatusCodeFullData = await response.json();
-      return {
-        ...data,
-        classification: this.getClassification(data.code),
-      };
-    },
-    {
-      abortSignal: this.abortSignal,
-      enableOnDemand: true,
-      queryKey: () =>
-        [
-          ...this.shortListDataQuery.options.queryKey,
-          null as Maybe<number>,
-        ] as const,
-      enabled: ({ queryKey }) => typeof queryKey[1] === 'number',
-    },
-  );
+  @observable
+  private activeStatusCode?: number;
+
+  private fullDataQuery;
 
   get fullData() {
     return this.fullDataQuery.result.data;
@@ -135,7 +109,7 @@ export class StatusCodesModel implements IStatusCodesModel {
   }
 
   async loadFullData(code: number) {
-    this.fullDataQuery.update({ queryKey: ['status-codes', code] });
+    this.activeStatusCode = code;
     await when(() => !this.isFullDataLoading, {
       signal: this.abortSignal,
     });
@@ -151,4 +125,41 @@ export class StatusCodesModel implements IStatusCodesModel {
     });
     return this.shortList;
   }
+
+  constructor() {
+    makeObservable(this);
+
+    this.fullDataQuery = createQuery(
+      async ({ queryKey, signal }) => {
+        const code = queryKey[1];
+        const response = await fetch(
+          appRouter.createUrl({
+            baseUrl: buildEnvs.DEV
+              ? appRouter.baseUrl!
+              : 'https://raw.githubusercontent.com/js2me/http-status-codes/refs/heads/master/public',
+            hash: '',
+            pathname: `/data/${code}.json`,
+          }),
+          {
+            signal,
+          },
+        );
+        const data: StatusCodeFullData = await response.json();
+        return {
+          ...data,
+          classification: this.getClassification(data.code),
+        };
+      },
+      {
+        abortSignal: this.abortSignal,
+        enableOnDemand: true,
+        options: () => ({
+          queryKey: ['status-codes', this.activeStatusCode],
+          enabled: typeof this.activeStatusCode === 'number',
+        }),
+      },
+    );
+  }
 }
+
+export const statusCodesModel = new StatusCodesModel();

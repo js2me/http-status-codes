@@ -1,10 +1,10 @@
-import { observable } from 'mobx';
+import { makeObservable, observable } from 'mobx';
 import { ViewModelBase } from 'mobx-view-model';
 
-import { container, tag, tags } from '@/shared/lib/di';
+import { appTheme } from '@/shared/lib/mobx/theme';
 
 export class LayoutVM extends ViewModelBase {
-  private themeStore = container.inject(tags.theme);
+  private themeStore = appTheme;
 
   get theme() {
     return this.themeStore.theme;
@@ -13,7 +13,9 @@ export class LayoutVM extends ViewModelBase {
   switchTheme = this.themeStore.switchTheme;
 
   @observable
-  accessor headerAppendText = '';
-}
+  headerAppendText = '';
 
-tag({ token: LayoutVM, scope: 'container' });
+  willMount(): void {
+    makeObservable(this);
+  }
+}

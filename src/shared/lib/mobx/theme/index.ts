@@ -23,3 +23,5 @@ export class ThemeStoreImpl extends TwoColorThemeStore {
     );
   }
 }
+
+export const appTheme = new ThemeStoreImpl();

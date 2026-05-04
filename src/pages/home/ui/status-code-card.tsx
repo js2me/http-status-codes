@@ -2,7 +2,6 @@ import { Link } from 'wouter';
 import { cx } from 'yummies/css';
 
 import { StatusCodeShortData } from '@/entities/status-codes/model';
-import { container, tags } from '@/shared/lib/di';
 
 export const StatusCodeCard = ({
   data,
@@ -11,16 +10,9 @@ export const StatusCodeCard = ({
   data: StatusCodeShortData;
   className?: string;
 }) => {
-  const router = container.get(tags.router);
-
   return (
     <Link
       href={`/${data.code}`}
-      onClick={(e) => {
-        e.stopPropagation();
-        e.preventDefault();
-        router.navigate(`/${data.code}`);
-      }}
       className={cx(
         'flex flex-col h-auto w-[14.625rem] max-sm:max-w-full aspect-square text-base-content',
         className,

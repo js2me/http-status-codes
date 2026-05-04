@@ -10,8 +10,7 @@ const isProd = process.env.NODE_ENV === "production";
 module.exports = {
   syntax: "postcss-scss",
   plugins: [
-    require("tailwindcss/nesting")(),
-    require("tailwindcss")(),
+    require("@tailwindcss/postcss"),
     normalize,
     calc,
     autoprefixer,

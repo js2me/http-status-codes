@@ -1,7 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@plugin "daisyui";
+@plugin "@tailwindcss/typography";
+@plugin "tailwindcss-animate";
 
 html {
   scrollbar-gutter: stable;

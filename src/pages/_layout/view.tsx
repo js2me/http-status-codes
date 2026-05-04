@@ -4,7 +4,6 @@ import { ReactNode } from 'react';
 import { Link } from 'wouter';
 import { cx } from 'yummies/css';
 
-import { container, tags } from '@/shared/lib/di';
 import { ContentLoader } from '@/shared/ui/content-loader';
 
 import catImage from './assets/cat-kinkytwt.gif';
@@ -18,8 +17,6 @@ interface LayoutViewProps extends ViewModelProps<LayoutVM> {
 
 export const LayoutView = observer(
   ({ children, loading, model }: LayoutViewProps) => {
-    const router = container.get(tags.router);
-
     return (
       <div
         className={cx(
@@ -27,14 +24,7 @@ export const LayoutView = observer(
         )}
       >
         <div className={'flex flex-row'}>
-          <Link
-            className={'flex flex-row'}
-            href={'/'}
-            onClick={(e) => {
-              e.preventDefault();
-              router.navigate('/');
-            }}
-          >
+          <Link className={'flex flex-row'} href={'/'}>
             <img
               src={catImage}
               alt={'cat'}

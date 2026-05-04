@@ -1,2 +1,2 @@
 export * from './model.types';
-export * from './model';
+export { ToastStore, appToasts } from './model';

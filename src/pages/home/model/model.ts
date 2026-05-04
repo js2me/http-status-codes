@@ -1,16 +1,16 @@
 import { action, observable } from 'mobx';
 import { PageViewModelBase } from 'mobx-wouter';
 
-import { StatusCodesModel } from '@/entities/status-codes/model';
-import { container, tag, tags } from '@/shared/lib/di';
+import { statusCodesModel } from '@/entities/status-codes/model';
+import { appRouter } from '@/shared/lib/app-router';
 
 export class HomePageVM extends PageViewModelBase {
-  private statusCodesData = container.inject(StatusCodesModel);
+  private statusCodesData = statusCodesModel;
 
-  router = container.inject(tags.router);
+  router = appRouter;
 
   @observable
-  accessor search: string = '';
+  search: string = '';
 
   @action.bound
   setSearch(search: string) {
@@ -42,5 +42,3 @@ export class HomePageVM extends PageViewModelBase {
     return Object.entries(groups) as RecordEntries<typeof groups>;
   }
 }
-
-tag({ token: HomePageVM, scope: 'container' });

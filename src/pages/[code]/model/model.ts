@@ -1,12 +1,11 @@
-import { reaction, runInAction, when } from 'mobx';
+import { makeObservable, reaction, runInAction, when } from 'mobx';
 import { PageViewModelBase } from 'mobx-wouter';
 
-import { StatusCodesModel } from '@/entities/status-codes/model';
+import { statusCodesModel } from '@/entities/status-codes/model';
 import { Layout } from '@/pages/_layout';
-import { container, tag } from '@/shared/lib/di';
 
 export class CodePageVM extends PageViewModelBase<{ code: string }> {
-  private statusCodes = container.inject(StatusCodesModel);
+  private statusCodes = statusCodesModel;
 
   get data() {
     return this.statusCodes.fullData;
@@ -18,6 +17,10 @@ export class CodePageVM extends PageViewModelBase<{ code: string }> {
 
   private get layout() {
     return this.viewModels.get(Layout);
+  }
+
+  willMount(): void {
+    makeObservable(this);
   }
 
   async mount() {
@@ -53,5 +56,3 @@ export class CodePageVM extends PageViewModelBase<{ code: string }> {
     }
   }
 }
-
-tag({ token: CodePageVM, scope: 'container' });

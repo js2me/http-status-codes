@@ -2,21 +2,16 @@ import { observer } from 'mobx-react-lite';
 import { ViewModelsProvider } from 'mobx-view-model';
 import { ErrorBoundary } from 'react-simple-error-boundary';
 
-import { container, tags } from '@/shared/lib/di';
+import { appRouter } from '@/shared/lib/app-router';
+import { appViewModels } from '@/shared/lib/app-view-models';
 
 import { Routing } from './routing';
 
 export const App = observer(() => {
-  const router = container.inject(tags.router);
-  const viewModels = container.inject(tags.viewModels);
-
   return (
-    <ViewModelsProvider value={viewModels}>
+    <ViewModelsProvider value={appViewModels}>
       <ErrorBoundary>
-        <Routing
-          useHashRouting={router.type === 'hash'}
-          baseUrl={router.baseUrl}
-        />
+        <Routing useHashRouting baseUrl={appRouter.baseUrl} />
       </ErrorBoundary>
     </ViewModelsProvider>
   );

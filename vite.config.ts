@@ -1,5 +1,6 @@
 /* eslint-disable import/default */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
+import babelPlugin, { defineRolldownBabelPreset } from '@rolldown/plugin-babel';
 import viteLegacyPlugin from '@vitejs/plugin-legacy';
 import react from '@vitejs/plugin-react';
 import browserslist from 'browserslist';
@@ -7,7 +8,6 @@ import dotenv from 'dotenv';
 import { defineConfig } from 'vite';
 import { default as checker } from 'vite-plugin-checker';
 import { default as eslint } from 'vite-plugin-eslint';
-import { createHtmlPlugin as html } from 'vite-plugin-html';
 import svgr from 'vite-plugin-svgr';
 
 import packageJson from './package.json';
@@ -25,8 +25,43 @@ dotenv.config({
 
 const browserTargets = browserslist.loadConfig({ path: '.' });
 
-const baseUrl = process.env.PUBLIC_URL || '/';
+/** Vite ожидает base с ведущим и завершающим `/`; иначе ломаются пути к entry и HMR. */
+function normalizeAppBase(url: string): string {
+  const raw = (url || '/').trim();
+  if (raw === '' || raw === '/') {
+    return '/';
+  }
+  const withLeading = raw.startsWith('/') ? raw : `/${raw}`;
+  return withLeading.endsWith('/') ? withLeading : `${withLeading}/`;
+}
+
+const baseUrl = normalizeAppBase(process.env.PUBLIC_URL || '/');
 const port = +Number(process.env.PORT) || 8081;
+
+/** OXC в Vite 8 не ловерит декораторы MobX; Babel — рекомендованный обход (см. vite migration / discussions). */
+const mobxDecoratorsBabelPreset = defineRolldownBabelPreset({
+  preset: () => ({
+    presets: [
+      [
+        '@babel/preset-typescript',
+        {
+          allowDeclareFields: true,
+          jsx: 'preserve',
+        },
+      ],
+    ],
+    plugins: [
+      ['@babel/plugin-proposal-decorators', { legacy: true }],
+      ['@babel/plugin-transform-class-properties', { loose: true }],
+    ],
+  }),
+  rolldown: {
+    filter: {
+      code: /@/,
+    },
+  },
+});
+
 
 const useProxyTargetApiUrl = isPreview || isDev;
 
@@ -85,8 +120,6 @@ export default defineConfig({
     ssrManifest: false,
     ssr: false,
     rollupOptions: {
-      maxParallelFileOps: 100,
-      cache: true,
       output: {
         entryFileNames: 'static/js/bundle.[hash].js',
         assetFileNames: 'static/assets/[name].[hash].[ext]',
@@ -102,20 +135,14 @@ export default defineConfig({
     },
   },
   plugins: [
-    react({
-      babel: {
-        plugins: [
-          [
-            '@babel/plugin-proposal-decorators',
-            {
-              version: '2023-05',
-            },
-          ],
-        ],
-      },
+    babelPlugin({
+      presets: [mobxDecoratorsBabelPreset],
     }),
+    react(),
     viteLegacyPlugin({
       targets: browserTargets,
+      // Tailwind v4 требует современные браузеры; legacy-трансформация Babel не парсит MobX 2023-05 decorators.
+      renderLegacyChunks: false,
       additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
     }),
     svgr({}),
@@ -124,13 +151,5 @@ export default defineConfig({
       checker({
         typescript: true,
       }),
-    html({
-      minify: isProd,
-      inject: {
-        data: {
-          buildEnvs
-        }
-      }
-    }),
   ].filter(Boolean),
 });
