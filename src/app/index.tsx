@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import { ViewModelsProvider } from 'mobx-view-model';
+import { ViewModelsProvider } from 'mobx-view-model-react';
 import { ErrorBoundary } from 'react-simple-error-boundary';
 
 import { appRouter } from '@/shared/lib/app-router';

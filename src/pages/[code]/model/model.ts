@@ -1,8 +1,8 @@
 import { reaction, runInAction, when } from 'mobx';
-import { PageViewModelBase } from 'mobx-wouter';
+import { PageViewModelBase } from 'mobx-wouter/page-view-model';
 
 import { statusCodesModel } from '@/entities/status-codes/model';
-import { Layout } from '@/pages/_layout';
+import { LayoutVM } from '@/pages/_layout/model';
 
 export class CodePageVM extends PageViewModelBase<{ code: string }> {
   private statusCodes = statusCodesModel;
@@ -16,7 +16,7 @@ export class CodePageVM extends PageViewModelBase<{ code: string }> {
   }
 
   private get layout() {
-    return this.viewModels.get(Layout);
+    return this.viewModels.get(LayoutVM);
   }
 
   async mount() {
@@ -45,7 +45,7 @@ export class CodePageVM extends PageViewModelBase<{ code: string }> {
   }
 
   didUnmount(): void {
-    if (this.layout) {
+    if (this.layout?.headerAppendText === this.pathParams.code) {
       runInAction(() => {
         this.layout!.headerAppendText = '';
       });

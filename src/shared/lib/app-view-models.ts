@@ -1,15 +1,16 @@
 import { makeObservable } from 'mobx';
 import {
   AnyViewModel,
+  AnyViewModelSimple,
   ViewModelCreateConfig,
   ViewModelStoreBase,
 } from 'mobx-view-model';
 
 class AppViewModelsStore extends ViewModelStoreBase {
-  createViewModel<VM extends AnyViewModel>(
+  create<VM extends AnyViewModel | AnyViewModelSimple>(
     config: ViewModelCreateConfig<VM>,
   ): VM {
-    const vm = super.createViewModel(config);
+    const vm = super.create(config);
 
     // чтобы завести декораторы (не аксесор)
     makeObservable(vm);

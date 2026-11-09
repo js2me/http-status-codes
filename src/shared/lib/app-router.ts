@@ -1,8 +1,3 @@
-import { createHashHistory } from 'mobx-location-history';
-import { Router } from 'mobx-wouter';
+import { HashRouter } from './hash-router';
 
-export const appRouter = new Router({
-  history: createHashHistory(),
-  baseUrl: buildEnvs.BASE_URL || '/',
-  useStartViewTransition: true,
-});
+export const appRouter = new HashRouter(buildEnvs.BASE_URL || '/');

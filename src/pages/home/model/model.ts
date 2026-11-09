@@ -1,5 +1,5 @@
 import { action, observable } from 'mobx';
-import { PageViewModelBase } from 'mobx-wouter';
+import { PageViewModelBase } from 'mobx-wouter/page-view-model';
 
 import { statusCodesModel } from '@/entities/status-codes/model';
 import { appRouter } from '@/shared/lib/app-router';

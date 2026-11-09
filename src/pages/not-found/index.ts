@@ -1,5 +1,5 @@
-import { withPageViewModel } from 'mobx-wouter';
+import { withViewModel } from 'mobx-view-model-react';
 
 import { NotFoundPageVM } from './model';
 
-export const NotFoundPage = withPageViewModel(NotFoundPageVM)();
+export const NotFoundPage = withViewModel(NotFoundPageVM, () => null);
