@@ -1,10 +1,10 @@
-import { ViewModelProps } from 'mobx-view-model-react';
+import { withViewModel } from 'mobx-view-model-react';
 
 import { HomePageVM } from '../model';
 
 import { StatusCodesGroup } from './status-codes-group';
 
-export const HomePageView = ({ model }: ViewModelProps<HomePageVM>) => {
+export const HomePage = withViewModel(HomePageVM, ({ model }) => {
   return (
     <div className={'flex flex-col gap-3'}>
       <div className={'flex flex-row gap-2 mr-auto'}>
@@ -32,4 +32,4 @@ export const HomePageView = ({ model }: ViewModelProps<HomePageVM>) => {
       </div>
     </div>
   );
-};
+});

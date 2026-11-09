@@ -1,8 +1,8 @@
-import { ViewModelProps } from 'mobx-view-model-react';
+import { withViewModel } from 'mobx-view-model-react';
 
 import { CodePageVM } from '../model';
 
-export const CodePageView = ({ model }: ViewModelProps<CodePageVM>) => {
+export const CodePageContent = withViewModel(CodePageVM, ({ model }) => {
   return (
     <div className={'flex flex-col gap-3'}>
       <h1
@@ -47,4 +47,4 @@ export const CodePageView = ({ model }: ViewModelProps<CodePageVM>) => {
       </div>
     </div>
   );
-};
+});
