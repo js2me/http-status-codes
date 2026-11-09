@@ -1,20 +1,14 @@
-import { withLazyPageViewModel } from 'mobx-wouter';
+import { lazy, Suspense } from 'react';
 
 import { ContentLoader } from '@/shared/ui/content-loader';
 
-export const CodePage = withLazyPageViewModel(
-  async () => {
-    const [{ CodePageVM }, { CodePageView }] = await Promise.all([
-      import('./model'),
-      import('./ui'),
-    ]);
+const LazyPage = lazy(async () => {
+  const { CodePageContent } = await import('./ui');
+  return { default: CodePageContent };
+});
 
-    return {
-      Model: CodePageVM,
-      View: CodePageView,
-    };
-  },
-  {
-    fallback: () => <ContentLoader />,
-  },
+export const CodePage = () => (
+  <Suspense fallback={<ContentLoader />}>
+    <LazyPage />
+  </Suspense>
 );

@@ -1,7 +1,8 @@
-import { Link } from 'wouter';
+import { Link } from 'mobx-route/react';
 import { cx } from 'yummies/css';
 
 import { StatusCodeShortData } from '@/entities/status-codes/model';
+import { routes } from '@/shared/lib/routes';
 
 export const StatusCodeCard = ({
   data,
@@ -12,7 +13,8 @@ export const StatusCodeCard = ({
 }) => {
   return (
     <Link
-      href={`/${data.code}`}
+      to={routes.code}
+      params={{ code: data.code }}
       className={cx(
         'flex flex-col h-auto w-[14.625rem] max-sm:max-w-full aspect-square text-base-content',
         className,

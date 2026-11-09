@@ -1,7 +1,11 @@
 import { makeObservable, observable, runInAction, when } from 'mobx';
 import { createQuery } from 'mobx-tanstack-query/preset';
 
-import { appRouter } from '@/shared/lib/app-router';
+const dataBaseUrl = (
+  buildEnvs.DEV
+    ? buildEnvs.BASE_URL || '/'
+    : 'https://raw.githubusercontent.com/js2me/http-status-codes/refs/heads/master/public'
+).replace(/\/$/, '');
 
 export interface StatusCodeShortData {
   code: number;
@@ -36,18 +40,9 @@ export class StatusCodesModel {
 
   private shortListDataQuery = createQuery(
     async ({ signal }) => {
-      const response = await fetch(
-        appRouter.createUrl({
-          baseUrl: buildEnvs.DEV
-            ? appRouter.baseUrl!
-            : 'https://raw.githubusercontent.com/js2me/http-status-codes/refs/heads/master/public',
-          hash: '',
-          pathname: `/data/short-list.json`,
-        }),
-        {
-          signal,
-        },
-      );
+      const response = await fetch(`${dataBaseUrl}/data/short-list.json`, {
+        signal,
+      });
       const data: StatusCodeShortData[] = await response.json();
       return data;
     },
@@ -132,18 +127,9 @@ export class StatusCodesModel {
     this.fullDataQuery = createQuery(
       async ({ queryKey, signal }) => {
         const code = queryKey[1];
-        const response = await fetch(
-          appRouter.createUrl({
-            baseUrl: buildEnvs.DEV
-              ? appRouter.baseUrl!
-              : 'https://raw.githubusercontent.com/js2me/http-status-codes/refs/heads/master/public',
-            hash: '',
-            pathname: `/data/${code}.json`,
-          }),
-          {
-            signal,
-          },
-        );
+        const response = await fetch(`${dataBaseUrl}/data/${code}.json`, {
+          signal,
+        });
         const data: StatusCodeFullData = await response.json();
         return {
           ...data,

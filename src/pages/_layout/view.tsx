@@ -1,22 +1,23 @@
-import { observer } from 'mobx-react-lite';
-import { ViewModelProps } from 'mobx-view-model';
+import { Link } from 'mobx-route/react';
+import { withViewModel } from 'mobx-view-model-react';
 import { ReactNode } from 'react';
-import { Link } from 'wouter';
 import { cx } from 'yummies/css';
 
+import { routes } from '@/shared/lib/routes';
 import { ContentLoader } from '@/shared/ui/content-loader';
 
 import catImage from './assets/cat-kinkytwt.gif';
 import { LayoutVM } from './model';
 
-interface LayoutViewProps extends ViewModelProps<LayoutVM> {
+interface LayoutProps {
   className?: string;
   children?: ReactNode;
   loading?: boolean;
 }
 
-export const LayoutView = observer(
-  ({ children, loading, model }: LayoutViewProps) => {
+export const Layout = withViewModel<LayoutVM, LayoutProps>(
+  LayoutVM,
+  ({ children, loading, model }) => {
     return (
       <div
         className={cx(
@@ -24,7 +25,7 @@ export const LayoutView = observer(
         )}
       >
         <div className={'flex flex-row'}>
-          <Link className={'flex flex-row'} href={'/'}>
+          <Link className={'flex flex-row'} to={routes.home}>
             <img
               src={catImage}
               alt={'cat'}
@@ -59,4 +60,5 @@ export const LayoutView = observer(
       </div>
     );
   },
+  { id: 'layout' },
 );

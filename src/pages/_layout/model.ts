@@ -1,7 +1,7 @@
-import { observable } from 'mobx';
 import { ViewModelBase } from 'mobx-view-model';
 
 import { appTheme } from '@/shared/lib/mobx/theme';
+import { routes } from '@/shared/lib/routes';
 
 export class LayoutVM extends ViewModelBase {
   private themeStore = appTheme;
@@ -12,6 +12,7 @@ export class LayoutVM extends ViewModelBase {
 
   switchTheme = this.themeStore.switchTheme;
 
-  @observable
-  headerAppendText = '';
+  get headerAppendText() {
+    return routes.code.isOpened ? (routes.code.params?.code ?? '') : '';
+  }
 }
