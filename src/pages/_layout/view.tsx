@@ -1,8 +1,9 @@
+import { Link } from 'mobx-route/react';
 import { ViewModelProps } from 'mobx-view-model-react';
 import { ReactNode } from 'react';
-import { Link } from 'wouter';
 import { cx } from 'yummies/css';
 
+import { routes } from '@/shared/lib/routes';
 import { ContentLoader } from '@/shared/ui/content-loader';
 
 import catImage from './assets/cat-kinkytwt.gif';
@@ -22,7 +23,7 @@ export const LayoutView = ({ children, loading, model }: LayoutViewProps) => {
       )}
     >
       <div className={'flex flex-row'}>
-        <Link className={'flex flex-row'} href={'/'}>
+        <Link className={'flex flex-row'} to={routes.home}>
           <img
             src={catImage}
             alt={'cat'}

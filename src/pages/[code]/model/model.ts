@@ -1,10 +1,12 @@
-import { reaction, runInAction, when } from 'mobx';
-import { PageViewModelBase } from 'mobx-wouter/page-view-model';
+import { reaction } from 'mobx';
+import { RouteViewModel } from 'mobx-route/view-model';
 
 import { statusCodesModel } from '@/entities/status-codes/model';
-import { LayoutVM } from '@/pages/_layout/model';
+import { routes } from '@/shared/lib/routes';
 
-export class CodePageVM extends PageViewModelBase<{ code: string }> {
+export class CodePageVM extends RouteViewModel<typeof routes.code> {
+  readonly route = routes.code;
+
   private statusCodes = statusCodesModel;
 
   get data() {
@@ -15,26 +17,14 @@ export class CodePageVM extends PageViewModelBase<{ code: string }> {
     return this.statusCodes.isError;
   }
 
-  private get layout() {
-    return this.viewModels.get(LayoutVM);
-  }
-
-  async mount() {
-    await this.statusCodes.loadFullData(+this.pathParams.code);
-
-    await when(() => !!this.data || this.isError, {
-      signal: this.unmountSignal,
-    });
-
+  mount(): void {
     super.mount();
 
     reaction(
-      () => this.layout,
-      (layout) => {
-        if (layout) {
-          runInAction(() => {
-            layout.headerAppendText = this.pathParams.code;
-          });
+      () => this.route.params?.code,
+      (code) => {
+        if (code) {
+          this.statusCodes.loadFullData(+code);
         }
       },
       {
@@ -42,13 +32,5 @@ export class CodePageVM extends PageViewModelBase<{ code: string }> {
         signal: this.unmountSignal,
       },
     );
-  }
-
-  didUnmount(): void {
-    if (this.layout?.headerAppendText === this.pathParams.code) {
-      runInAction(() => {
-        this.layout!.headerAppendText = '';
-      });
-    }
   }
 }

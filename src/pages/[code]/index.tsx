@@ -12,8 +12,8 @@ const LazyPage = lazy(async () => {
   return { default: withViewModel(CodePageVM, CodePageView) };
 });
 
-export const CodePage = ({ params }: { params: { code: string } }) => (
+export const CodePage = () => (
   <Suspense fallback={<ContentLoader />}>
-    <LazyPage key={params.code} payload={params} />
+    <LazyPage />
   </Suspense>
 );

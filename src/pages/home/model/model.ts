@@ -1,13 +1,13 @@
 import { action, observable } from 'mobx';
-import { PageViewModelBase } from 'mobx-wouter/page-view-model';
+import { RouteViewModel } from 'mobx-route/view-model';
 
 import { statusCodesModel } from '@/entities/status-codes/model';
-import { appRouter } from '@/shared/lib/app-router';
+import { routes } from '@/shared/lib/routes';
 
-export class HomePageVM extends PageViewModelBase {
+export class HomePageVM extends RouteViewModel<typeof routes.home> {
+  readonly route = routes.home;
+
   private statusCodesData = statusCodesModel;
-
-  router = appRouter;
 
   @observable
   search: string = '';
